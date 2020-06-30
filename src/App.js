@@ -5,11 +5,13 @@ import Logout from './components/Logout.js'
 import SignupForm from './components/SignupForm.js'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
+import { getParks } from './actions/parks.js'
 
 class App extends Component {
 
     componentDidMount(){
         this.props.getCurrentUser()
+        this.props.getParks()
     }
 
     render(){
@@ -23,4 +25,4 @@ class App extends Component {
     }
 }
 
-export default connect(null, { getCurrentUser })(App)
+export default connect(null, { getCurrentUser, getParks })(App)
