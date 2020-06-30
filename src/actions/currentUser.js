@@ -1,3 +1,10 @@
+export const setCurrentUser = user => {
+    return {
+        type: "SET_CURRENT_USER",
+        user
+    }
+}
+
 export const login = (userInfo) => {
     return dispatch => {
         return fetch('http://localhost:3000/login', {
@@ -9,7 +16,11 @@ export const login = (userInfo) => {
         })
             .then(resp => resp.json())
             .then(data => {
-                console.log(data)
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    dispatch(setCurrentUser(data))
+                }
             })
     }
 }
