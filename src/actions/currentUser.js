@@ -42,6 +42,30 @@ export const logout = () => {
     }  
 }
 
+export const signup = (userInfo) => {
+    console.log(userInfo)
+    return dispatch => {
+        return fetch('http://localhost:3001/signup', {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user: userInfo
+                })
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    dispatch(setCurrentUser(data))
+                }
+            })
+    }
+}
+
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("http://localhost:3001/current_user", {
