@@ -13,7 +13,8 @@ export const clearCurrentUser = () => {
 
 export const login = (userInfo) => {
     return dispatch => {
-        return fetch('http://localhost:3000/login', {
+        return fetch('http://localhost:3001/login', {
+            credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -34,9 +35,27 @@ export const login = (userInfo) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch('http://localhost:3000/logout', {
-        method: "DELETE"
+        return fetch('http://localhost:3001/logout', {
+            credentials: "include",
+            method: "DELETE"
         })
+    }  
+}
+
+export const getCurrentUser = () => {
+    return dispatch => {
+        return fetch("http://localhost:3001/current_user", {
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (!data.error) {
+                    dispatch(setCurrentUser(data))
+                }
+            })
     }
-    
 }
