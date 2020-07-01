@@ -5,13 +5,12 @@ import { getCurrentUser } from './actions/currentUser.js'
 import { getParks } from './actions/parks.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import LoginForm from './components/LoginForm.js'
-import SignupForm from './components/SignupForm.js'
 import Navbar from './components/Navbar.js'
 import Welcome from './components/Welcome.js'
-import Parks from './components/Parks.js'
-import ParkShow from './components/ParkShow.js'
-
+import LoginForm from './components/user/LoginForm.js'
+import SignupForm from './components/user/SignupForm.js'
+import Parks from './components/park/Parks.js'
+import ParkShow from './components/park/ParkShow.js'
 
 class App extends Component {
 

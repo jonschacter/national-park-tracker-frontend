@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import LoginButton from './LoginButton.js'
-import SignupButton from './SignupButton.js'
-import LogoutButton from './LogoutButton.js'
+import LogoutButton from './user/LogoutButton.js'
+import LoginButton from './user/LoginButton.js'
+import SignupButton from './user/SignupButton.js'
 
 const Welcome = ({ currentUser }) => {
     return (
