@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Visit from './Visit.js'
 
 const Visits = ({ visits, parks }) => {
@@ -12,6 +13,8 @@ const Visits = ({ visits, parks }) => {
     return(
         <div className="visits-list">
             <h2>MY VISITS</h2>
+            <Link to="/visits/new">Add a New Visit</Link>
+            <br /><br />
             { visits.length > 0 ? renderVisits() : null }
         </div>
     )
