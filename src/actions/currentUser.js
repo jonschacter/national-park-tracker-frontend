@@ -1,3 +1,5 @@
+import { getVisits } from './visits.js'
+
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -27,6 +29,7 @@ export const login = (userInfo, history) => {
                     alert(data.error)
                 } else {
                     dispatch(setCurrentUser(data))
+                    dispatch(getVisits())
                     history.push("/")
                 }
             })
@@ -63,6 +66,7 @@ export const signup = (userInfo, history) => {
                     alert(data.error)
                 } else {
                     dispatch(setCurrentUser(data))
+                    dispatch(getVisits())
                     history.push("/")
                 }
             })
@@ -82,6 +86,7 @@ export const getCurrentUser = () => {
             .then(data => {
                 if (!data.error) {
                     dispatch(setCurrentUser(data))
+                    dispatch(getVisits())
                 }
             })
     }
