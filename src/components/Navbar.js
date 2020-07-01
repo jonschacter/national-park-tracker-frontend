@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Navbar = ({ loggedIn }) => {
     return(
         <div>
-            <Link to="/">Home</Link> | <Link to="/parks">Parks</Link>{ loggedIn ? <> | <Link>My Visits</Link> | <Link>Log Out</Link></> : null }
+            <Link to="/">Home</Link> | <Link to="/parks">Parks</Link>{ loggedIn ? <> | <Link to="/visits">My Visits</Link> | <Link>Log Out</Link></> : null }
         </div>
     )
 }
