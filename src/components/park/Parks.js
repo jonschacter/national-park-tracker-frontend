@@ -14,7 +14,7 @@ const Parks = ({ parks }) => {
     return(
         <div>
             <h2>PARKS</h2>
-            { parks.length > 0 ? <ul className="parks-list">{renderParks()}</ul> : <h3>LOADING...</h3> }
+            { parks.length > 0 ? <div className="parks-list">{renderParks()}</div> : <h3>LOADING...</h3> }
         </div>
     )
 }
