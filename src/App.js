@@ -11,6 +11,7 @@ import LoginForm from './components/user/LoginForm.js'
 import SignupForm from './components/user/SignupForm.js'
 import Parks from './components/park/Parks.js'
 import ParkShow from './components/park/ParkShow.js'
+import Visits from './components/visit/Visits.js'
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
                     <Route exact path="/signup" component={SignupForm} />
                     <Route exact path="/parks" component={Parks} />
                     <Route path={`/parks/:parkCode`} component={ParkShow} />
+                    <Route exact path="/visits" component={Visits} />
                 </Router>
             </div>
         )
