@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { logout } from '../actions/currentUser.js'
 
-const Navbar = ({ loggedIn }) => {
+const Navbar = ({ loggedIn, logout, history }) => {
     return(
         <div>
-            <Link to="/">Home</Link> | <Link to="/parks">Parks</Link>{ loggedIn ? <> | <Link to="/visits">My Visits</Link> | <Link>Log Out</Link></> : null }
+            <Link to="/">Home</Link> | <Link to="/parks">Parks</Link>{ loggedIn ? <> | <Link to="/visits">My Visits</Link> | <Link onClick={ event => logout(history) }>Log Out</Link></> : null }
         </div>
     )
 }
@@ -16,4 +17,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default withRouter(connect(mapStateToProps, { logout })(Navbar))
