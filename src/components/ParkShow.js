@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { render } from '@testing-library/react'
 import ParkAddress from './ParkAddress.js'
 import ParkImage from './ParkImage.js'
 
