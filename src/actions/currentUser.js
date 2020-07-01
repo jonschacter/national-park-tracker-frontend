@@ -11,7 +11,7 @@ export const clearCurrentUser = () => {
     }
 }
 
-export const login = (userInfo) => {
+export const login = (userInfo, history) => {
     return dispatch => {
         return fetch('http://localhost:3001/login', {
             credentials: "include",
@@ -27,22 +27,24 @@ export const login = (userInfo) => {
                     alert(data.error)
                 } else {
                     dispatch(setCurrentUser(data))
+                    history.push("/")
                 }
             })
     }
 }
 
-export const logout = () => {
+export const logout = (history) => {
     return dispatch => {
         dispatch(clearCurrentUser())
         return fetch('http://localhost:3001/logout', {
             credentials: "include",
             method: "DELETE"
         })
+        .then(history.push("/"))
     }  
 }
 
-export const signup = (userInfo) => {
+export const signup = (userInfo, history) => {
     console.log(userInfo)
     return dispatch => {
         return fetch('http://localhost:3001/signup', {
@@ -61,6 +63,7 @@ export const signup = (userInfo) => {
                     alert(data.error)
                 } else {
                     dispatch(setCurrentUser(data))
+                    history.push("/")
                 }
             })
     }

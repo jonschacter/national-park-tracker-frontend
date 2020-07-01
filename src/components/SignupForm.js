@@ -11,7 +11,7 @@ class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.signup(this.state)
+        this.props.signup(this.state, this.props.history)
         this.setState({
             username: "",
             password: ""
