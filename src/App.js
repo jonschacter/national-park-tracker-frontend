@@ -9,7 +9,7 @@ import Navbar from './components/Navbar.js'
 import Welcome from './components/Welcome.js'
 import LoginForm from './components/user/LoginForm.js'
 import SignupForm from './components/user/SignupForm.js'
-import Parks from './components/park/Parks.js'
+import ParksContainer from './components/park/ParksContainer.js'
 import ParkShow from './components/park/ParkShow.js'
 import Visits from './components/visit/Visits.js'
 import VisitShow from './components/visit/VisitShow.js'
@@ -32,7 +32,7 @@ class App extends Component {
                         <Route exact path="/" component={Welcome} />
                         <Route exact path="/login" component={LoginForm} />
                         <Route exact path="/signup" component={SignupForm} />
-                        <Route exact path="/parks" component={Parks} />
+                        <Route exact path="/parks" component={ParksContainer} />
                         <Route exact path={`/parks/:parkCode`} component={ParkShow} />
                         <Route exact path="/visits" component={Visits} />
                         <Route exact path="/visits/new" component={NewVisitForm} />
