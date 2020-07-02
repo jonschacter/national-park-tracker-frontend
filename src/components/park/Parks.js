@@ -7,41 +7,54 @@ class Parks extends Component {
         
         this.state = {
             filteredParks: props.parks,
-            query: ""
+            query: "",
+            queryType: "Name"
         }
     }
   
     renderParks = () => {
         return(
-            this.state.filteredParks.map(park => {
-                return <Park key={park.id} name={park.name} parkCode={park.parkCode} states={park.states} />
+            this.state.filteredParks.sort((a,b) => {
+                return (a.name < b.name) ? -1 : 1
+            }).map(park => {
+                return <Park key={park.id} park={park} />
             })
         )
     }
 
-    handleChange = (event) => {
+    handleSelectChange = (event) => {
+        const query = this.state.query.toLowerCase()
+        const result = this.state.queryType === "State" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
+        this.setState({
+            queryType: event.target.value,
+            filteredParks: result
+        })
+    }
+
+    handleQueryChange = (event) => {
         const query = event.target.value.toLowerCase()
+        const result = this.state.queryType === "Name" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
         this.setState({
             query,
-            filteredParks: this.props.parks.filter(
-                park => park.name.toLowerCase().includes(query) ||
-                park.addresses.find(add => add.type === "Physical").stateCode.toLowerCase().includes(query)
-            )
+            filteredParks: result
         })
     }
 
     render(){
-        const { parks } = this.props
         return(
             <div>
                 <h2>PARKS</h2>
-                { parks.length > 0 ? <div className="parks-list">
+                <div className="parks-list">
                     <form>
-                        <input type="text" onChange={this.handleChange} placeholder="search by name or state"/>
-                        <input type="submit" value="Search" />
+                        <input type="text" onChange={this.handleQueryChange} placeholder="search by name or state"/>
+                        <select name="queryType" value={this.state.queryType} onChange={this.handleSelectChange}>
+                            <option>Name</option>
+                            <option>State</option>
+                        </select>
+                        {/* <input type="submit" value="Search" /> */}
                     </form>
                     {this.renderParks()}
-                </div> : <h3>LOADING...</h3> }
+                </div>
             </div>
         )
     }

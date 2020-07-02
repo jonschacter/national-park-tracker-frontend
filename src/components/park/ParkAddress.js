@@ -7,15 +7,15 @@ const ParkAddress = ({ address }) => {
                 <p>{address.line1}</p>
                 { address.line2 === "" ? null : <p>{address.line2}</p>}
                 { address.line3 === "" ? null : <p>{address.line2}</p>}
-                <p>{address.city}, {address.stateCode} {address.postalCode}</p>
+                <p>{address.city}, {address.state} {address.postal}</p>
             </div>
         )
     }
     
     return(
-        <>
-            { address ? renderAddress() : null }
-        </>
+        <div className="address">
+            {renderAddress()}
+        </div>
     )
 }
 

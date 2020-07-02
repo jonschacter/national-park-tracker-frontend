@@ -49,7 +49,7 @@ export const createVisit = (visitData, history) => {
         const formattedVisitData = {
             start_date: visitData.startDate,
             end_date: visitData.endDate,
-            park_code: visitData.parkCode,
+            park_id: parseInt(visitData.parkId),
             user_id: visitData.userId
         }
         
@@ -99,7 +99,7 @@ export const updateVisit = (visitData, history) => {
         const formattedVisitData = {
             start_date: visitData.startDate,
             end_date: visitData.endDate,
-            park_code: visitData.parkCode,
+            park_id: parseInt(visitData.parkId),
             user_id: visitData.userId
         }
         

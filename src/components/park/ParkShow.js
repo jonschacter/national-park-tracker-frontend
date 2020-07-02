@@ -8,7 +8,9 @@ const ParkShow = ({ park }) => {
         return(
             <div>
                 <h2>{park.name}</h2>
-                <ParkAddress address={park.addresses.find(address => address.type === "Physical")} />
+                { park.addresses.map(address => {
+                    return <ParkAddress address={address} />
+                })}
                 <p>{park.description}</p>
                 {park.images.map((image, i) => <ParkImage key={i} image={image}/>)}
             </div>
@@ -22,7 +24,7 @@ const ParkShow = ({ park }) => {
 
 const mapStateToProps = (state, props) => {
     return {
-        park: state.parks.find(park => park.parkCode === props.match.params.parkCode)
+        park: state.parks.find(park => park.id === parseInt(props.match.params.id))
     }
 }
 

@@ -8,7 +8,7 @@ class EditVisitForm extends Component {
         super(props)
 
         this.state = {
-            parkCode: props.visit.park_code,
+            parkId: props.visit.park_id,
             startDate: props.visit.start_date,
             endDate: props.visit.end_date,
             userId: props.visit.user_id,
@@ -32,8 +32,8 @@ class EditVisitForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Park:</label>
-                    <select name="parkCode" value={this.state.parkCode} onChange={this.handleChange}>
-                        { this.props.parks.map(park => <option value={park.parkCode}>{park.name}</option>)}
+                    <select name="parkId" value={this.state.parkId} onChange={this.handleChange}>
+                        { this.props.parks.map(park => <option value={park.id}>{park.name}</option>)}
                     </select>
                     <br/>
                     <label>Start Date:</label>

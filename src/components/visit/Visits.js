@@ -6,7 +6,7 @@ import Visit from './Visit.js'
 const Visits = ({ visits, parks }) => {
     const renderVisits = () => {
         return visits.map(visit => {
-            return <Visit key={visit.id} visit={visit} park={parks.find(park => park.parkCode === visit.park_code)}/>
+            return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
         })
     }
     

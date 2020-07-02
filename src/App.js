@@ -33,7 +33,7 @@ class App extends Component {
                         <Route exact path="/login" component={LoginForm} />
                         <Route exact path="/signup" component={SignupForm} />
                         <Route exact path="/parks" component={ParksContainer} />
-                        <Route exact path={`/parks/:parkCode`} component={ParkShow} />
+                        <Route exact path={`/parks/:id`} component={ParkShow} />
                         <Route exact path="/visits" component={Visits} />
                         <Route exact path="/visits/new" component={NewVisitForm} />
                         <Route exact path={`/visits/:id/edit`} component={EditVisitFormContainer} />

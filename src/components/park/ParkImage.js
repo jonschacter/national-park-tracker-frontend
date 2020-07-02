@@ -3,7 +3,7 @@ import React from 'react'
 const ParkImage = ({ image }) => {
     return(
         <div className="park-image">
-            <img src={image.url} alt={image.altText}/>
+            <img src={image.url} alt={image.alt}/>
             <p>{image.caption}</p>
         </div>
     )

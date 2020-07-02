@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Park = ({ name, states, parkCode }) => {
+const Park = ({ park }) => {
     return(
         <div className="park">
-            <p><Link to={`/parks/${parkCode}`}>{name}</Link> - {states}</p>
+            <p><Link to={`/parks/${park.id}`}>{park.name}</Link> - {park.states}</p>
         </div>
     )
 }

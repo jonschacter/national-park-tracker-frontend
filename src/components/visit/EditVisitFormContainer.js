@@ -6,7 +6,7 @@ const EditVisitFormContainer = ({ visit, parks }) => {
     return(
         <div>
             <h2>Edit Visit</h2>
-            { visit ? <EditVisitForm visit={visit} parks={parks} /> : null }
+            { visit && parks.length > 0 ? <EditVisitForm visit={visit} parks={parks} /> : null }
         </div>
     )
 }

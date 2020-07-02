@@ -4,7 +4,7 @@ import { createVisit } from '../../actions/visits.js'
 
 class NewVisitForm extends Component {
     state = {
-        parkCode: "",
+        parkId: "",
         startDate: "",
         endDate: ""
     }
@@ -29,9 +29,9 @@ class NewVisitForm extends Component {
                 <h2>Create a Visit</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>Park:</label>
-                    <select name="parkCode" onChange={this.handleChange} value={this.state.parkCode}>
+                    <select name="parkId" onChange={this.handleChange} value={this.state.parkId}>
                         <option disabled selected value=""> -- select a park -- </option>
-                        { this.props.parks.map(park => <option value={park.parkCode}>{park.name}</option>) }
+                        { this.props.parks.map(park => <option value={park.id}>{park.name}</option>) }
                     </select>
                     <br/>
                     <label>Start Date:</label>
