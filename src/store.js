@@ -3,11 +3,13 @@ import thunk from 'redux-thunk'
 import currentUser from './reducers/currentUser.js'
 import parks from './reducers/parks.js'
 import visits from './reducers/visits.js'
+import parkReviews from './reducers/parkReviews.js'
 
 const reducer = combineReducers({
     currentUser,
     parks,
-    visits
+    visits,
+    parkReviews
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
