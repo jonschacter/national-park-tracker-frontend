@@ -13,7 +13,8 @@ import Parks from './components/park/Parks.js'
 import ParkShow from './components/park/ParkShow.js'
 import Visits from './components/visit/Visits.js'
 import VisitShow from './components/visit/VisitShow.js'
-import VisitFormContainer from './components/visit/VisitFormContainer.js'
+import NewVisitForm from './components/visit/NewVisitForm.js'
+import EditVisitFormContainer from './components/visit/EditVisitFormContainer.js'
 
 class App extends Component {
 
@@ -34,7 +35,8 @@ class App extends Component {
                         <Route exact path="/parks" component={Parks} />
                         <Route exact path={`/parks/:parkCode`} component={ParkShow} />
                         <Route exact path="/visits" component={Visits} />
-                        <Route exact path="/visits/new" render={(routerProps) => <VisitFormContainer type="new" {...routerProps} />} />
+                        <Route exact path="/visits/new" component={NewVisitForm} />
+                        <Route exact path={`/visits/:id/edit`} component={EditVisitFormContainer} />
                         <Route exact path={`/visits/:id`} component={VisitShow} />
                     </Switch>
                 </Router>

@@ -19,6 +19,13 @@ export const removeVisit = visitId => {
     }
 }
 
+export const updateVisitAction = visit => {
+    return {
+        type: "UPDATE_VISIT",
+        visit
+    }
+}
+
 export const getVisits = () => {
     return dispatch => {
         return fetch('http://localhost:3001/visits', {
@@ -37,15 +44,22 @@ export const getVisits = () => {
     }
 }
 
-export const createVisit = (formData, history) => {
+export const createVisit = (visitData, history) => {
     return dispatch => {
+        const formattedVisitData = {
+            start_date: visitData.startDate,
+            end_date: visitData.endDate,
+            park_code: visitData.parkCode,
+            user_id: visitData.userId
+        }
+        
         return fetch('http://localhost:3001/visits', {
             credentials: "include",
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formattedVisitData)
         })
             .then(resp => resp.json())
             .then(data => {
@@ -75,6 +89,35 @@ export const deleteVisit = (visitId, history) => {
                 } else {
                     dispatch(removeVisit(visitId))
                     history.push("/visits")
+                }
+            })
+    }
+}
+
+export const updateVisit = (visitData, history) => {
+    return dispatch => {
+        const formattedVisitData = {
+            start_date: visitData.startDate,
+            end_date: visitData.endDate,
+            park_code: visitData.parkCode,
+            user_id: visitData.userId
+        }
+        
+        return fetch(`http://localhost:3001/visits/${visitData.id}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formattedVisitData)
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    dispatch(updateVisitAction(data))
+                    history.push(`/visits/${data.id}`)
                 }
             })
     }
