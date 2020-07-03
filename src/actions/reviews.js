@@ -12,6 +12,12 @@ export const setReview = (review) => {
     }
 }
 
+export const resetReview = () => {
+    return {
+        type: "RESET_REVIEW"
+    }
+}
+
 export const getReviews = (parkId) => {
     return dispatch => {
         return fetch(`http://localhost:3001/parks/${parkId}/reviews`, {
@@ -37,7 +43,9 @@ export const getReview = (visitId) => {
             .then(data => {
                 if (data.errors) {
                     alert(data.errors)
-                } else if (!data.notice) {
+                } else if (data.notice) {
+                    dispatch(resetReview())
+                } else {
                     dispatch(setReview(data))
                 }
             })
