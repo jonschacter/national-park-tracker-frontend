@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getReviews } from '../../actions/parkReviews.js'
+import { getReviews } from '../../actions/reviews.js'
 import ParkAddress from './ParkAddress.js'
 import ParkImage from './ParkImage.js'
 import ReviewCard from '../review/ReviewCard.js'
