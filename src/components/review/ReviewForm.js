@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createReview } from '../../actions/reviews.js'
+import { updateReview } from '../../actions/reviews.js'
 
 class ReviewForm extends Component {
     constructor(props){
@@ -9,6 +10,7 @@ class ReviewForm extends Component {
         this.state = {
             content: props.content,
             type: props.type,
+            id: props.id,
             visitId: props.visitId
         }
     }
@@ -23,19 +25,20 @@ class ReviewForm extends Component {
         event.preventDefault()
         const reviewData = {
             visit_id: this.state.visitId,
-            content: this.state.content
+            content: this.state.content,
         }
         if (this.state.type === "New") {
             this.props.createReview(reviewData)
         } else {
-
+            this.props.updateReview(reviewData, this.state.id)
+            this.props.toggleEdit()
         }
     }
 
     render(){
         return(
             <div>
-                <h4>Add a Review</h4>
+                <h4>{this.state.type === "New" ? "Add a Review" : "Edit your Review" }</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 
@@ -53,4 +56,4 @@ class ReviewForm extends Component {
     }
 }
 
-export default connect(null, { createReview })(ReviewForm)
+export default connect(null, { createReview, updateReview })(ReviewForm)

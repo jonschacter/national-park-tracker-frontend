@@ -8,7 +8,8 @@ import ReviewForm from '../review/ReviewForm.js'
 
 class VisitShow extends Component {
     state = {
-        formToggle: false
+        formToggle: false,
+        editToggle: false
     }
 
     componentDidMount(){
@@ -16,33 +17,56 @@ class VisitShow extends Component {
     }
 
     toggleForm = () => {
-        this.setState(prevState => {
-            return{
-                formToggle: !prevState.formToggle
-            }
+        this.setState({
+            formToggle: true
         })
+    }
+
+    toggleEdit = () => {
+        this.setState(prevState => ({
+            editToggle: !prevState.editToggle
+        }))
     }
     
     renderReviewForm = () => {
         if (this.state.formToggle) {
-            return <ReviewForm type="New" content="" visitId={this.props.visit.id} />
+            return <ReviewForm type="New" content="" id="" visitId={this.props.visit.id} />
         } else {
             return <button onClick={this.toggleForm}>Write a Review</button>
         }
     }
 
+    renderReview = () => {
+        const { review, visit, history } = this.props
+        if (this.state.editToggle) {
+            return <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleEdit={this.toggleEdit} />
+        } else {
+            return <ReviewCard source="fromVisit" review={review} toggleEdit={this.toggleEdit} />
+        }
+    }
+    
+    renderVisit = () => {
+        const { visit, history, deleteVisit } = this.props
+        return(
+            <>
+                <p>Start Date: { visit ? visit.start_date : null }</p>
+                <p>End Date: { visit ? visit.end_date : null }</p>
+                <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link>
+                <br/>
+                <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link>
+                <br/>
+                <br/>
+            </>
+        )
+    }
+
     render(){
-        const { visit, park, history, deleteVisit, review } = this.props
+        const { visit, park, review } = this.props
         return(
             <div>
                 <h3>{ park ? <Link to={`/parks/${park.id}`}>{park.name}</Link> : "Destination" }</h3>
-                <p>Start Date: { visit ? visit.start_date : null }</p>
-                <p>End Date: { visit ? visit.end_date : null }</p>
-                { visit ? <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link> : null }
-                <br />
-                { visit ? <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link> : null }
-                <br /><br />
-                { review ? <ReviewCard review={review} source={"fromVisit"}/> : this.renderReviewForm() }
+                { visit ? this.renderVisit() : null }
+                { review ? this.renderReview() : this.renderReviewForm() }
             </div>
         )
     }
