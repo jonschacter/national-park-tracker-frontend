@@ -23,6 +23,14 @@ class VisitShow extends Component {
         })
     }
     
+    renderReviewForm = () => {
+        if (this.state.formToggle) {
+            return <ReviewForm type="New" content="" visitId={this.props.visit.id} />
+        } else {
+            return <button onClick={this.toggleForm}>Write a Review</button>
+        }
+    }
+
     render(){
         const { visit, park, history, deleteVisit, review } = this.props
         return(
@@ -34,8 +42,7 @@ class VisitShow extends Component {
                 <br />
                 { visit ? <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link> : null }
                 <br /><br />
-                { review ? <ReviewCard review={review} source={"fromVisit"}/> : null }
-                { this.state.formToggle ? <ReviewForm type="New" content="" visitId={visit.id} /> : <button onClick={this.toggleForm}>Write a Review</button> }
+                { review ? <ReviewCard review={review} source={"fromVisit"}/> : this.renderReviewForm() }
             </div>
         )
     }
