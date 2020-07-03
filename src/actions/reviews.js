@@ -93,3 +93,23 @@ export const updateReview = (reviewData, id, history) => {
             })
     }
 }
+
+export const deleteReview = (id) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/reviews/${id}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error)
+                } else {
+                    dispatch(resetReview())
+                }
+            })
+    }
+}
