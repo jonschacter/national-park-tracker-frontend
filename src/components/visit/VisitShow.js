@@ -35,7 +35,7 @@ class VisitShow extends Component {
                 { visit ? <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link> : null }
                 <br /><br />
                 { review ? <ReviewCard review={review} source={"fromVisit"}/> : null }
-                { this.state.formToggle ? <ReviewForm type="New" content="" /> : <button onClick={this.toggleForm}>Write a Review</button> }
+                { this.state.formToggle ? <ReviewForm type="New" content="" visitId={visit.id} /> : <button onClick={this.toggleForm}>Write a Review</button> }
             </div>
         )
     }
