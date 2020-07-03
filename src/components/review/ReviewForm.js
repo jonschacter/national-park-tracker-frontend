@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createReview } from '../../actions/reviews.js'
 
 class ReviewForm extends Component {
     constructor(props){
@@ -6,7 +8,8 @@ class ReviewForm extends Component {
 
         this.state = {
             content: props.content,
-            type: props.type
+            type: props.type,
+            visitId: props.visitId
         }
     }
 
@@ -18,8 +21,12 @@ class ReviewForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
+        const reviewData = {
+            visit_id: this.state.visitId,
+            content: this.state.content
+        }
         if (this.state.type === "New") {
-
+            this.props.createReview(reviewData)
         } else {
 
         }
@@ -46,4 +53,4 @@ class ReviewForm extends Component {
     }
 }
 
-export default ReviewForm
+export default connect(null, { createReview })(ReviewForm)
