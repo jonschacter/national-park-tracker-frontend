@@ -51,3 +51,24 @@ export const getReview = (visitId) => {
             })
     }
 }
+
+export const createReview = (reviewData) => {
+    return dispatch => {
+        return fetch('http://localhost:3001/reviews', {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(reviewData)
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (!data.errors){
+                    dispatch(setReview(data))
+                } else {
+                    alert(data.errors)
+                }
+            })
+    }
+}
