@@ -4,14 +4,23 @@ import { Link } from 'react-router-dom'
 import { deleteVisit } from '../../actions/visits.js'
 import { getReview } from '../../actions/reviews.js'
 import ReviewCard from '../review/ReviewCard.js'
+import ReviewForm from '../review/ReviewForm.js'
 
 class VisitShow extends Component {
     state = {
-
+        formToggle: false
     }
 
     componentDidMount(){
         this.props.getReview(parseInt(this.props.match.params.id))
+    }
+
+    toggleForm = () => {
+        this.setState(prevState => {
+            return{
+                formToggle: !prevState.formToggle
+            }
+        })
     }
     
     render(){
@@ -24,8 +33,9 @@ class VisitShow extends Component {
                 { visit ? <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link> : null }
                 <br />
                 { visit ? <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link> : null }
-                <br />
+                <br /><br />
                 { review ? <ReviewCard review={review} source={"fromVisit"}/> : null }
+                { this.state.formToggle ? <ReviewForm type="New" content="" /> : <button onClick={this.toggleForm}>Write a Review</button> }
             </div>
         )
     }
