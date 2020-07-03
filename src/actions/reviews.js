@@ -72,3 +72,24 @@ export const createReview = (reviewData) => {
             })
     }
 }
+
+export const updateReview = (reviewData, id, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/reviews/${id}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(reviewData)
+        })
+            .then(resp => resp.json())
+            .then(data => {
+                if (!data.errors){
+                    dispatch(setReview(data))
+                } else {
+                    alert(data.errors)
+                }
+            })
+    }
+}
