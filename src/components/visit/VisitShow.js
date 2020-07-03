@@ -16,9 +16,15 @@ class VisitShow extends Component {
         this.props.getReview(parseInt(this.props.match.params.id))
     }
 
-    toggleForm = () => {
+    showForm = () => {
         this.setState({
             formToggle: true
+        })
+    }
+
+    hideForm = () => {
+        this.setState({
+            formToggle: false
         })
     }
 
@@ -32,7 +38,7 @@ class VisitShow extends Component {
         if (this.state.formToggle) {
             return <ReviewForm type="New" content="" id="" visitId={this.props.visit.id} />
         } else {
-            return <button onClick={this.toggleForm}>Write a Review</button>
+            return <button onClick={this.showForm}>Write a Review</button>
         }
     }
 
@@ -41,7 +47,7 @@ class VisitShow extends Component {
         if (this.state.editToggle) {
             return <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleEdit={this.toggleEdit} />
         } else {
-            return <ReviewCard source="fromVisit" review={review} toggleEdit={this.toggleEdit} />
+            return <ReviewCard source="fromVisit" review={review} toggleEdit={this.toggleEdit} hideForm={this.hideForm} />
         }
     }
     
