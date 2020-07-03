@@ -12,6 +12,8 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case "SET_REVIEW":
             return action.review
+        case "RESET_REVIEW":
+            return initialState
         default:
             return state
     }
