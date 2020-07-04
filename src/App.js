@@ -28,6 +28,7 @@ class App extends Component {
             <div className="App">
                 <Router>
                     <Navbar />
+                    <h1>WELCOME TO US NATIONAL PARK TRACKER</h1>
                     <Switch>
                         <Route exact path="/" component={Welcome} />
                         <Route exact path="/login" component={LoginForm} />
