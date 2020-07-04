@@ -1,17 +1,18 @@
+// for array of reviews in Park show page
 export const setReviews = (reviews) => {
     return {
         type: "SET_REVIEWS",
         reviews
     }
 }
-
+// for single review in Visit show page
 export const setReview = (review) => {
     return {
         type: "SET_REVIEW",
         review
     }
 }
-
+// clear single review in Visit show page
 export const resetReview = () => {
     return {
         type: "RESET_REVIEW"

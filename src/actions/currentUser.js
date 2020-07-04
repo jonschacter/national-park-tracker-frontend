@@ -50,7 +50,6 @@ export const logout = (history) => {
 }
 
 export const signup = (userInfo, history) => {
-    console.log(userInfo)
     return dispatch => {
         return fetch('http://localhost:3001/signup', {
             credentials: "include",

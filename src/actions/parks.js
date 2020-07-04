@@ -1,11 +1,11 @@
-// const npsApiUrl = 'https://developer.nps.gov/api/v1/parks?&api_key=OwNvFO9PgnzaBuEJMEol0fpU5JwIUYO1WJbxGbL9'
-
 export const setParks = parks => {
     return {
         type: "SET_PARKS",
         parks
     }
 }
+
+// Note: Originally built for the NPS.GOV API but had unusable response times. Built a models and a scraper into my backend API to seed data
 
 export const getParks = () => {
     return dispatch => {
