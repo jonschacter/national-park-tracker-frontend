@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import EditVisitForm from './EditVisitForm.js'
+import VisitForm from './VisitForm.js'
 
 const EditVisitFormContainer = ({ visit, parks }) => {
     return(
         <div>
             <h2>Edit Visit</h2>
-            { visit && parks.length > 0 ? <EditVisitForm visit={visit} parks={parks} /> : null }
+            { visit && parks.length > 0 ? <VisitForm visit={visit} parks={parks} type="Update Visit" /> : null }
         </div>
     )
 }
