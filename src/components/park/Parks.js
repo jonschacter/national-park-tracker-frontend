@@ -51,7 +51,6 @@ class Parks extends Component {
                             <option>Name</option>
                             <option>State</option>
                         </select>
-                        {/* <input type="submit" value="Search" /> */}
                     </form>
                     {this.renderParks()}
                 </div>
