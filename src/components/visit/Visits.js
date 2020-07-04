@@ -5,17 +5,20 @@ import Visit from './Visit.js'
 
 const Visits = ({ visits, parks }) => {
     const renderVisits = () => {
-        return visits.map(visit => {
-            return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
-        })
+        return <div className="visits-list">
+            {visits.map(visit => {
+                return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
+            })}
+        </div>
+
     }
     
     return(
-        <div className="visits-list">
+        <div className="visits">
             <h2>MY VISITS</h2>
             <Link to="/visits/new">Add a New Visit</Link>
             <br /><br />
-            { visits.length > 0 ? renderVisits() : null }
+            { visits.length > 0 ? renderVisits() : <h3>LOADING...</h3> }
         </div>
     )
 }
