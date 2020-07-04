@@ -4,11 +4,14 @@ import LogoutButton from './user/LogoutButton.js'
 import LoginButton from './user/LoginButton.js'
 import SignupButton from './user/SignupButton.js'
 
-const Welcome = ({ currentUser }) => {
+const Welcome = ({ currentUser, history }) => {
+    const redirectToParks = () => {
+        history.push('/parks')
+    }
+    
     return (
         <div className="welcome">
-            <h1>WELCOME TO US NATIONAL PARK TRACKER</h1>
-            { currentUser ? null : <p><LoginButton/> or <SignupButton/></p> }
+            { currentUser ? redirectToParks() : <p><LoginButton/> or <SignupButton/></p> }
         </div>
     )
 }
