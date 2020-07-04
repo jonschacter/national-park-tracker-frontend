@@ -1,20 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { login } from '../../actions/currentUser.js'
 import { signup } from '../../actions/currentUser.js'
 
-class SignupForm extends Component {
-    
-    state = {
-        username: "",
-        password: ""
+class UserForm extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            username: "",
+            password: "",
+            type: props.type
+        }
     }
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.signup(this.state, this.props.history)
+        if (this.state.type === "Log In") {
+            this.props.login(this.state, this.props.history)
+        } else {
+            this.props.signup(this.state, this.props.history)
+        }
+        
         this.setState({
             username: "",
-            password: ""
+            password: "",
+            type: ""
         })
     }
 
@@ -33,10 +43,10 @@ class SignupForm extends Component {
                 <label>Password:</label>
                 <input type="password" name="password" onChange={this.handleChange} value={this.state.password} />
                 <br/>
-                <input type="submit" value="Sign Up" />
+                <input type="submit" value={this.state.type} />
             </form>
         )
     }
 }
 
-export default connect(null, { signup })(SignupForm)
+export default connect(null, { login, signup })(UserForm)

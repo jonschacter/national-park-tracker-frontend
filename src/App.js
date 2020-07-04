@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import { getParks } from './actions/parks.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import './App.css';
 import Navbar from './components/Navbar.js'
 import Welcome from './components/Welcome.js'
-import LoginForm from './components/user/LoginForm.js'
-import SignupForm from './components/user/SignupForm.js'
+import UserForm from './components/user/UserForm.js'
 import ParksContainer from './components/park/ParksContainer.js'
 import ParkShow from './components/park/ParkShow.js'
 import Visits from './components/visit/Visits.js'
-import VisitShow from './components/visit/VisitShow.js'
 import NewVisitForm from './components/visit/NewVisitForm.js'
 import EditVisitFormContainer from './components/visit/EditVisitFormContainer.js'
+import VisitShow from './components/visit/VisitShow.js'
 
 class App extends Component {
 
@@ -31,8 +30,8 @@ class App extends Component {
                     <h1>WELCOME TO US NATIONAL PARK TRACKER</h1>
                     <Switch>
                         <Route exact path="/" component={Welcome} />
-                        <Route exact path="/login" component={LoginForm} />
-                        <Route exact path="/signup" component={SignupForm} />
+                        <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />
+                        <Route exact path="/signup" render={(routerProps) => <UserForm {...routerProps} type="Sign Up" />} />
                         <Route exact path="/parks" component={ParksContainer} />
                         <Route exact path={`/parks/:id`} component={ParkShow} />
                         <Route exact path="/visits" component={Visits} />
@@ -46,10 +45,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        loggedIn: !!state.currentUser
-    }
-}
-
-export default connect(mapStateToProps, { getCurrentUser, getParks })(App)
+export default connect(null, { getCurrentUser, getParks })(App)
