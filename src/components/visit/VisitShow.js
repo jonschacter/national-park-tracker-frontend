@@ -13,7 +13,8 @@ class VisitShow extends Component {
     }
 
     componentDidMount(){
-        this.props.getReview(parseInt(this.props.match.params.id))
+        const { getReview, match } = this.props
+        getReview(parseInt(match.params.id))
     }
 
     showForm = () => {
@@ -43,7 +44,7 @@ class VisitShow extends Component {
     }
 
     renderReview = () => {
-        const { review, visit, history } = this.props
+        const { review, visit } = this.props
         if (this.state.editToggle) {
             return <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleEdit={this.toggleEdit} />
         } else {
@@ -59,7 +60,7 @@ class VisitShow extends Component {
                 <p>End Date: { visit ? visit.end_date : null }</p>
                 <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link>
                 <br/>
-                <Link onClick={event => deleteVisit(visit.id, history)}>Delete This Visit</Link>
+                <Link onClick={() => deleteVisit(visit.id, history)}>Delete This Visit</Link>
                 <br/>
                 <br/>
             </>
@@ -79,11 +80,11 @@ class VisitShow extends Component {
     
 }
 
-const mapStateToProps = ({ visits, parks, visitReview}, props) => {
-    const visit = visits.find(visit => visit.id === parseInt(props.match.params.id))
+const mapStateToProps = ({ visits, parks, visitReview }, { match }) => {
+    const visit = visits.find(visit => visit.id === parseInt(match.params.id))
     return {
         visit,
-        park: visit ? parks.find(park => park.id === visit.park_id) : undefined,
+        park: visit ? parks.find(park => park.id === visit.park_id) : null,
         review: visitReview.id === "" ? null : visitReview
     }
 }

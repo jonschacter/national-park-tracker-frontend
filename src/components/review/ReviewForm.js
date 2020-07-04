@@ -9,7 +9,6 @@ class ReviewForm extends Component {
 
         this.state = {
             content: props.content,
-            type: props.type,
             id: props.id,
             visitId: props.visitId
         }
@@ -27,18 +26,19 @@ class ReviewForm extends Component {
             visit_id: this.state.visitId,
             content: this.state.content,
         }
-        if (this.state.type === "New") {
-            this.props.createReview(reviewData)
+        const { type, createReview, updatedReview, toggleEdit } = this.props
+        if (type === "New") {
+            createReview(reviewData)
         } else {
-            this.props.updateReview(reviewData, this.state.id)
-            this.props.toggleEdit()
+            updateReview(reviewData, this.state.id)
+            toggleEdit()
         }
     }
 
     render(){
         return(
             <div>
-                <h4>{this.state.type === "New" ? "Add a Review" : "Edit your Review" }</h4>
+                <h4>{this.props.type === "New" ? "Add a Review" : "Edit your Review" }</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 
