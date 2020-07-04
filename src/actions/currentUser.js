@@ -33,6 +33,7 @@ export const login = (userInfo, history) => {
                     history.push("/")
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -44,6 +45,7 @@ export const logout = (history) => {
             method: "DELETE"
         })
         .then(history.push("/"))
+        .catch(error => alert(error))
     }  
 }
 
@@ -70,6 +72,7 @@ export const signup = (userInfo, history) => {
                     history.push("/")
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -89,5 +92,6 @@ export const getCurrentUser = () => {
                     dispatch(getVisits())
                 }
             })
+            .catch(error => alert(error))
     }
 }

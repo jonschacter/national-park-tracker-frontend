@@ -19,5 +19,6 @@ export const getParks = () => {
             .then(response => {
                 dispatch(setParks(response))
             })
+            .catch(error => alert(error))
     }
 }

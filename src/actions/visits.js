@@ -41,6 +41,7 @@ export const getVisits = () => {
                     dispatch(setVisits(data))
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -70,6 +71,7 @@ export const createVisit = (visitData, history) => {
                     history.push(`/visits/${data.id}`)
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -91,6 +93,7 @@ export const deleteVisit = (visitId, history) => {
                     history.push("/visits")
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -120,5 +123,6 @@ export const updateVisit = (visitData, history) => {
                     history.push(`/visits/${data.id}`)
                 }
             })
+            .catch(error => alert(error))
     }
 }

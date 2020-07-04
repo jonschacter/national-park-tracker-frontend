@@ -28,6 +28,7 @@ export const getReviews = (parkId) => {
             }})
             .then(resp => resp.json())
             .then(data => dispatch(setReviews(data)))
+            .catch(error => alert(error))
     }
 }
 
@@ -49,6 +50,7 @@ export const getReview = (visitId) => {
                     dispatch(setReview(data))
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -70,6 +72,7 @@ export const createReview = (reviewData) => {
                     alert(data.errors)
                 }
             })
+            .catch(error => alert(error))
     }
 }
 
@@ -111,5 +114,6 @@ export const deleteReview = (id) => {
                     dispatch(resetReview())
                 }
             })
+            .catch(error => alert(error))
     }
 }
