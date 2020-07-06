@@ -48,7 +48,7 @@ class VisitForm extends Component {
     render(){
         const { parks, type } = this.props
         return(
-            <div>
+            <div className="form">
                 <form onSubmit={this.handleSubmit}>
                     <label>Park:</label>
                     <select name="parkId" onChange={this.handleChange} value={this.state.parkId}>
@@ -62,7 +62,9 @@ class VisitForm extends Component {
                     <label>End Date:</label>
                     <input type="text" placeholder="YYYY-MM-DD" name="endDate" onChange={this.handleChange} value={this.state.endDate} />
                     <br/>
-                    <input type="submit" value={type} />
+                    <div className="form-button">
+                        <input type="submit" value={type} />
+                    </div>
                 </form>
             </div>
         )
