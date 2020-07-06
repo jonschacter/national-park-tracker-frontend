@@ -25,7 +25,7 @@ class ParkShow extends Component {
         const { park, parkReviews } = this.props
         return(
             <div className="container">
-                <h2>{park.name}</h2>
+                <h2 dangerouslySetInnerHTML={{__html: park.name}}></h2>
                 { park.addresses.map((address, i) => <ParkAddress key={i} address={address} />)}
                 <p>{park.description}</p>
                 {park.images.map((image, i) => <ParkImage key={i} image={image}/>)}

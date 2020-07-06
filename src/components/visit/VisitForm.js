@@ -53,7 +53,9 @@ class VisitForm extends Component {
                     <label>Park:</label>
                     <select name="parkId" onChange={this.handleChange} value={this.state.parkId}>
                         { type === "Create Visit" ? <option disabled value=""> -- select a park -- </option> : null }
-                        { parks.map(park => <option value={park.id}>{park.name}</option>) }
+                        { parks.sort((a,b) => {
+                            return (a.name < b.name) ? -1 : 1
+                        }).map(park => <option value={park.id} dangerouslySetInnerHTML={{__html: park.name}}></option>) }
                     </select>
                     <br/>
                     <label>Start Date:</label>

@@ -26,7 +26,7 @@ class ReviewForm extends Component {
             visit_id: this.state.visitId,
             content: this.state.content,
         }
-        const { type, createReview, updatedReview, toggleEdit } = this.props
+        const { type, createReview, updateReview, toggleEdit } = this.props
         if (type === "New") {
             createReview(reviewData)
         } else {
