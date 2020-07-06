@@ -5,7 +5,7 @@ import Visit from './Visit.js'
 
 const Visits = ({ visits, parks }) => {
     const renderVisits = () => {
-        return <div className="visits-list">
+        return <div className="list">
             {visits.map(visit => {
                 return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
             })}
@@ -14,7 +14,7 @@ const Visits = ({ visits, parks }) => {
     }
     
     return(
-        <div className="visits">
+        <div className="container">
             <h2>MY VISITS</h2>
             <Link to="/visits/new">Add a New Visit</Link>
             <br /><br />

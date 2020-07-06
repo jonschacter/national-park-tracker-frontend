@@ -15,7 +15,7 @@ class ParkShow extends Component {
     renderReviews = () => {
         return(
             <div className="park-reviews">
-                <h3>REVIEWS</h3>
+                <h2>REVIEWS</h2>
                 { this.props.parkReviews.map(review => <><ReviewCard review={review} source="fromParks" /><br/></>) }
             </div>
         )
@@ -24,7 +24,7 @@ class ParkShow extends Component {
     renderPark = () => {
         const { park, parkReviews } = this.props
         return(
-            <div>
+            <div className="container">
                 <h2>{park.name}</h2>
                 { park.addresses.map((address, i) => <ParkAddress key={i} address={address} />)}
                 <p>{park.description}</p>

@@ -49,7 +49,7 @@ class ReviewForm extends Component {
                         value={this.state.content}
                     />
                     <br/>
-                    <input type="submit" value="Submit Review" />
+                    <input className="button" type="submit" value="Submit Review" />
                 </form>
             </div>
         )

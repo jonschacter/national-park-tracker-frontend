@@ -36,14 +36,16 @@ class UserForm extends Component {
     
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className="form" onSubmit={this.handleSubmit}>
                 <label>Username:</label>
                 <input type="text" name="username" onChange={this.handleChange} value={this.state.username} />
                 <br/>
                 <label>Password:</label>
                 <input type="password" name="password" onChange={this.handleChange} value={this.state.password} />
                 <br/>
-                <input type="submit" value={this.state.type} />
+                <div className="form-button">
+                    <input className="button" type="submit" value={this.state.type} />
+                </div>
             </form>
         )
     }

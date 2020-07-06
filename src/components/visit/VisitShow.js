@@ -39,7 +39,7 @@ class VisitShow extends Component {
         if (this.state.formToggle) {
             return <ReviewForm type="New" content="" id="" visitId={this.props.visit.id} />
         } else {
-            return <button onClick={this.showForm}>Write a Review</button>
+            return <button className="button" onClick={this.showForm}>Write a Review</button>
         }
     }
 
@@ -70,7 +70,7 @@ class VisitShow extends Component {
     render(){
         const { visit, park, review } = this.props
         return(
-            <div>
+            <div className="container">
                 <h3>{ park ? <Link to={`/parks/${park.id}`}>{park.name}</Link> : "Destination" }</h3>
                 { visit ? this.renderVisit() : null }
                 { review ? this.renderReview() : this.renderReviewForm() }

@@ -27,7 +27,7 @@ class App extends Component {
             <div className="App">
                 <Router>
                     <Navbar />
-                    <h1>WELCOME TO US NATIONAL PARK TRACKER</h1>
+                    <h1 className="welcome-title">U.S. NATIONAL PARK TRACKER</h1>
                     <Switch>
                         <Route exact path="/" component={Welcome} />
                         <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />

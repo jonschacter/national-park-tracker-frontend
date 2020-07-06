@@ -1,42 +1,111 @@
 .App {
-  text-align: center;
+    background-color: #0B0C10;
+    color: white;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.welcome-title {
+    color: #66FCF1;
+    font-family: "Bookman Old Style";
+    font-size: 48px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+    color: #66FCF1;
+    text-align: center;
+    font-size: 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a:link, a:visited {
+    color: #45A29E;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover, a:active {
+    color: #66FCF1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+    background-color: #C5C6C7;
+    font-size: 14px;
+    color: #1F2833;
+    padding: 6px 6px;
+    border-radius: 4px;
+    border: 2px solid #1F2833;
+}
+
+.button:hover {
+    background-color: #45A29E;
+}
+
+.subheader {
+    color: #C5C6C7;
+}
+
+.container {
+    background-color: #1F2833;
+    margin: auto;
+    width: 85%;
+    border: 10px solid #45A29E;
+    padding-bottom: 20px;
+}
+
+.list {
+    text-align: left;
+    padding-left: 20%;
+}
+
+.park-search {
+    width: 195px;
+}
+
+.park-address {
+    line-height: 4px;
+    margin: auto;
+    margin-left: 30%;
+    padding: 5px;
+    padding-left: 20px;
+    text-align: left;
 }
 
 .park-image img {
-    max-width: 300px;
+    max-width: 400px;
+    max-height: 350px;
+}
+
+.review-card {
+    background-color: #45A29E;
+    width: 70%;
+    margin: auto;
+    padding: 1px;
+}
+
+.review-content {
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.review-date {
+    font-size: 12px;
+}
+
+.form {
+    background-color: #1F2833;
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid #45A29E;
+    text-align: left;
+}
+
+.form-button {
+    text-align: center;
+    margin: 5px;
+}
+
+.review-card > a {
+    color: #1F2833;
+}
+
+.review-card > a:hover, a:active {
+    color: #66FCF1;
 }

@@ -42,12 +42,12 @@ class Parks extends Component {
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <h2>PARKS</h2>
-                <div className="parks-list">
+                <div className="list">
                     <form>
-                        <input type="text" onChange={this.handleQueryChange} placeholder="search by name or state"/>
-                        <select name="queryType" value={this.state.queryType} onChange={this.handleSelectChange}>
+                        <input className="park-search" type="text" onChange={this.handleQueryChange} placeholder="search by name or state"/>
+                        <select className="button" name="queryType" value={this.state.queryType} onChange={this.handleSelectChange}>
                             <option>Name</option>
                             <option>State</option>
                         </select>

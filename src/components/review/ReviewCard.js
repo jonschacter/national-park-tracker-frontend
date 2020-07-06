@@ -11,9 +11,9 @@ const ReviewCard = ({ review, source, toggleEdit, deleteReview, hideForm }) => {
 
     return(
         <div className="review-card">
-            { source === "fromVisit" ? <h4>Your Review</h4> : <h4>{review.user.username}</h4> }
-            <p>{review.content}</p>
-            <p>{review.updated_at.split("T")[0]}</p>
+            { source === "fromVisit" ? <h3>Your Review</h3> : <h3>{review.user.username}</h3> }
+            <p className="review-content">{review.content}</p>
+            <p className="review-date">{review.updated_at.split("T")[0]}</p>
             { source === "fromVisit" ? <><Link onClick={toggleEdit}>edit</Link> | <Link onClick={handleDelete}>delete</Link></> : null }
         </div>
     )
