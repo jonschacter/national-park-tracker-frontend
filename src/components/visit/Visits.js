@@ -18,7 +18,7 @@ const Visits = ({ visits, parks }) => {
             <h2>MY VISITS</h2>
             <Link to="/visits/new">Add a New Visit</Link>
             <br /><br />
-            { visits.length > 0 ? renderVisits() : <h3>LOADING...</h3> }
+            { visits.length > 0 ? renderVisits() : null }
         </div>
     )
 }
