@@ -6,7 +6,7 @@ Note: This application uses a backend repository that scrapes the NPS API for pa
 
 ## Related repositories
 
-[National Park Tracker Backend]((https://github.com/jonschacter/national-park-tracker-backend))
+[National Park Tracker Backend](https://github.com/jonschacter/national-park-tracker-backend)
 
 ## Installation
 
