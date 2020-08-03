@@ -5,8 +5,6 @@ export const setParks = parks => {
     }
 }
 
-// Note: Originally built for the NPS.GOV API but had unusable response times. Built a models and a scraper into my backend API to seed data
-
 export const getParks = () => {
     return dispatch => {
         return fetch('http://localhost:3001/parks', {

@@ -28,9 +28,9 @@ class UserForm extends Component {
         })
     }
 
-    handleChange = event => {
+    handleChange = ({ target: { name, value } }) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [name]: value
         })
     }
     
