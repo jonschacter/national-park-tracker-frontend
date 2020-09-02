@@ -8,7 +8,6 @@ const Park = ({ park }) => {
         <div className="park">
             <p>
                 <Link to={`/parks/${park.id}`} dangerouslySetInnerHTML={{__html: park.name}}></Link> - {park.states}
-                <button onClick={() => setCount(count + 1)}>{count}</button>
             </p>
         </div>
     )
