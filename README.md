@@ -8,6 +8,10 @@ Note: This application uses a backend repository that extracts data from the NPS
 
 [National Park Tracker Backend](https://github.com/jonschacter/national-park-tracker-backend)
 
+## Video Walkthrough
+
+https://youtu.be/Gpk5dYMYY2E
+
 ## Installation
 
 execute:
