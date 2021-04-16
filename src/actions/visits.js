@@ -1,3 +1,5 @@
+import API_ROOT from '../apiRoot.js'
+
 export const setVisits = visits => {
     return {
         type: "SET_VISITS",
@@ -28,7 +30,7 @@ export const updateVisitAction = visit => {
 
 export const getVisits = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/visits', {
+        return fetch(`${API_ROOT}/visits`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -54,7 +56,7 @@ export const createVisit = (visitData, history) => {
             user_id: visitData.userId
         }
         
-        return fetch('http://localhost:3001/visits', {
+        return fetch(`${API_ROOT}/visits`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -77,7 +79,7 @@ export const createVisit = (visitData, history) => {
 
 export const deleteVisit = (visitId, history) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/visits/${visitId}`, {
+        return fetch(`${API_ROOT}/visits/${visitId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
@@ -106,7 +108,7 @@ export const updateVisit = (visitData, history) => {
             user_id: visitData.userId
         }
         
-        return fetch(`http://localhost:3001/visits/${visitData.id}`, {
+        return fetch(`${API_ROOT}/visits/${visitData.id}`, {
             credentials: "include",
             method: "PATCH",
             headers: {

@@ -1,3 +1,5 @@
+import API_ROOT from '../apiRoot.js'
+
 export const setParks = parks => {
     return {
         type: "SET_PARKS",
@@ -7,7 +9,7 @@ export const setParks = parks => {
 
 export const getParks = () => {
     return dispatch => {
-        return fetch('http://localhost:3001/parks', {
+        return fetch(`${API_ROOT}/parks`, {
             credentials: "include",
             method: "GET",
             headers: {

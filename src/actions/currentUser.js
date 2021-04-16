@@ -1,4 +1,5 @@
 import { getVisits } from './visits.js'
+import API_ROOT from '../apiRoot.js'
 
 export const setCurrentUser = user => {
     return {
@@ -15,7 +16,7 @@ export const clearCurrentUser = () => {
 
 export const login = (userInfo, history) => {
     return dispatch => {
-        return fetch('http://localhost:3001/login', {
+        return fetch(`${API_ROOT}/login`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -40,7 +41,7 @@ export const login = (userInfo, history) => {
 export const logout = (history) => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch('http://localhost:3001/logout', {
+        return fetch(`${API_ROOT}/logout`, {
             credentials: "include",
             method: "DELETE"
         })
@@ -51,7 +52,7 @@ export const logout = (history) => {
 
 export const signup = (userInfo, history) => {
     return dispatch => {
-        return fetch('http://localhost:3001/signup', {
+        return fetch(`${API_ROOT}/signup`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -77,7 +78,7 @@ export const signup = (userInfo, history) => {
 
 export const getCurrentUser = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/current_user", {
+        return fetch(`${API_ROOT}/current_user`, {
             credentials: "include",
             method: "GET",
             headers: {

@@ -1,3 +1,5 @@
+import API_ROOT from '../apiRoot.js'
+
 // for array of reviews in Park show page
 export const setReviews = (reviews) => {
     return {
@@ -21,7 +23,7 @@ export const resetReview = () => {
 
 export const getReviews = (parkId) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/parks/${parkId}/reviews`, {
+        return fetch(`${API_ROOT}/parks/${parkId}/reviews`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -35,7 +37,7 @@ export const getReviews = (parkId) => {
 
 export const getReview = (visitId) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/visits/${visitId}/reviews`, {
+        return fetch(`${API_ROOT}/visits/${visitId}/reviews`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -57,7 +59,7 @@ export const getReview = (visitId) => {
 
 export const createReview = (reviewData) => {
     return dispatch => {
-        return fetch('http://localhost:3001/reviews', {
+        return fetch(`${API_ROOT}/reviews`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -79,7 +81,7 @@ export const createReview = (reviewData) => {
 
 export const updateReview = (reviewData, id, history) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/reviews/${id}`, {
+        return fetch(`${API_ROOT}/reviews/${id}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -100,7 +102,7 @@ export const updateReview = (reviewData, id, history) => {
 
 export const deleteReview = (id) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/reviews/${id}`, {
+        return fetch(`${API_ROOT}/reviews/${id}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
