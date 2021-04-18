@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 // actions
 import { deleteVisit } from '../../actions/visits.js'
-import { getReview } from '../../actions/reviews.js'
+import { getReview, resetReview } from '../../actions/reviews.js'
 
 // components
 import ReviewCard from '../review/ReviewCard.js'
@@ -18,7 +18,8 @@ class VisitShow extends Component {
 
     componentDidMount(){
         // on mount check for existing review
-        const { getReview, match } = this.props
+        const { getReview, resetReview, match } = this.props
+        resetReview()
         getReview(parseInt(match.params.id))
     }
 
@@ -87,4 +88,4 @@ const mapStateToProps = ({ visits, parks, visitReview }, { match }) => {
     }
 }
 
-export default connect(mapStateToProps, { deleteVisit, getReview })(VisitShow)
+export default connect(mapStateToProps, { deleteVisit, getReview, resetReview })(VisitShow)
