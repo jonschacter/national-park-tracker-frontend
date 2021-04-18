@@ -1,9 +1,13 @@
+// react-redux
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// actions
 import { login } from '../../actions/currentUser.js'
 import { signup } from '../../actions/currentUser.js'
 
 class UserForm extends Component {
+    // props.type will be either "Log In" or "Sign Up"
     constructor(props){
         super(props)
         this.state = {
@@ -23,11 +27,11 @@ class UserForm extends Component {
         
         this.setState({
             username: "",
-            password: "",
-            type: ""
+            password: ""
         })
     }
-
+    
+    // controlled form
     handleChange = ({ target: { name, value } }) => {
         this.setState({
             [name]: value

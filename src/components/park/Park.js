@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+// react-redux
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Park = ({ park }) => {
-    const [count, setCount] = useState(0);
-
     return(
         <div className="park">
             <p>

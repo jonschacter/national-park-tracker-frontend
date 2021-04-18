@@ -1,5 +1,8 @@
+// react-redux
 import React from 'react'
 import { connect } from 'react-redux'
+
+// components
 import VisitForm from './VisitForm.js'
 
 const NewVisitFormContainer = ({ parks }) => {

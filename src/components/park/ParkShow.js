@@ -1,12 +1,18 @@
+// react-redux
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// actions
 import { getReviews } from '../../actions/reviews.js'
+
+// components
 import ParkAddress from './ParkAddress.js'
 import ParkImage from './ParkImage.js'
 import ReviewCard from '../review/ReviewCard.js'
 
 class ParkShow extends Component {
 
+    // on mount: fetch reviews
     componentDidMount(){
         const { getReviews, match } = this.props
         getReviews(match.params.id)

@@ -1,3 +1,4 @@
+// root string for API URL
 import API_ROOT from '../apiRoot.js'
 
 export const setParks = parks => {

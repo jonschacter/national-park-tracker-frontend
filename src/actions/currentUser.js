@@ -1,4 +1,6 @@
+// actions
 import { getVisits } from './visits.js'
+// root string for API URL
 import API_ROOT from '../apiRoot.js'
 
 export const setCurrentUser = user => {
@@ -29,6 +31,7 @@ export const login = (userInfo, history) => {
                 if (data.error) {
                     alert(data.error)
                 } else {
+                    // on successful log in: set user in store > fetch visits > redirect home
                     dispatch(setCurrentUser(data))
                     dispatch(getVisits())
                     history.push("/")
@@ -67,6 +70,7 @@ export const signup = (userInfo, history) => {
                 if (data.error) {
                     alert(data.error)
                 } else {
+                    // on successful sign up: set user in store > fetch visits > redirect home
                     dispatch(setCurrentUser(data))
                     dispatch(getVisits())
                     history.push("/")

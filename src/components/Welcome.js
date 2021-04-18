@@ -1,5 +1,8 @@
+// react-redux
 import React from 'react'
 import { connect } from 'react-redux'
+
+// components
 import LoginButton from './user/LoginButton.js'
 import SignupButton from './user/SignupButton.js'
 
@@ -10,6 +13,8 @@ const Welcome = ({ loggedIn, history }) => {
     }
     
     return (
+        // logged in => redirect to /parks
+        // logged out => display Login and Sign Up buttons
         <div className="welcome">
             { loggedIn ? redirectToParks() : <p><LoginButton/> or <SignupButton/></p> }
         </div>

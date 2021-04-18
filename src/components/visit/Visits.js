@@ -1,6 +1,9 @@
+// react-redux
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+// components
 import Visit from './Visit.js'
 
 const Visits = ({ visits, parks }) => {

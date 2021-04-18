@@ -1,10 +1,14 @@
+// react-redux
 import React, { Component } from 'react'
+
+// components
 import Park from './Park.js'
 
 class Parks extends Component {
     constructor(props){
         super(props)
         
+        // filteredParks defaults to all parks
         this.state = {
             filteredParks: props.parks,
             query: "",
@@ -13,6 +17,7 @@ class Parks extends Component {
     }
   
     renderParks = () => {
+        // render filtered sub-section of parks sorted by name
         return(
             this.state.filteredParks.sort((a,b) => {
                 return (a.name < b.name) ? -1 : 1
@@ -22,7 +27,9 @@ class Parks extends Component {
         )
     }
 
+   
     handleSelectChange = (event) => {
+        // filter parks on select change
         const query = this.state.query.toLowerCase()
         const result = this.state.queryType === "State" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
         this.setState({
@@ -32,6 +39,7 @@ class Parks extends Component {
     }
 
     handleQueryChange = (event) => {
+        // filter parks on query change
         const query = event.target.value.toLowerCase()
         const result = this.state.queryType === "Name" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
         this.setState({

@@ -1,10 +1,16 @@
+// react-redux 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getCurrentUser } from './actions/currentUser.js'
-import { getParks } from './actions/parks.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+// css
 import './App.css';
+
+// actions
+import { getCurrentUser } from './actions/currentUser.js'
+import { getParks } from './actions/parks.js'
+
+// components
 import Navbar from './components/Navbar.js'
 import Welcome from './components/Welcome.js'
 import UserForm from './components/user/UserForm.js'
@@ -18,6 +24,7 @@ import VisitShow from './components/visit/VisitShow.js'
 class App extends Component {
 
     componentDidMount(){
+        // on mount check for an existing user session & get park list from API
         this.props.getCurrentUser()
         this.props.getParks()
     }

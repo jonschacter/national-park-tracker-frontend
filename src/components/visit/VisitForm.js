@@ -1,10 +1,14 @@
+// react-redux
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+
+// actions
 import { createVisit } from '../../actions/visits.js'
 import { updateVisit } from '../../actions/visits.js'
 
 class VisitForm extends Component {
+    // props.type will be "Create Visit" or "Update Visit"
     constructor(props){
         super(props)
 

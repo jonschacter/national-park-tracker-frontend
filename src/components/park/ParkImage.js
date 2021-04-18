@@ -1,3 +1,4 @@
+// react-redux
 import React from 'react'
 
 const ParkImage = ({ image }) => {
