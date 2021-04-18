@@ -66,12 +66,11 @@ class VisitShow extends Component {
     }
 
     render(){
-        const { visit, park, review } = this.props
+        const { visit, park } = this.props
         return(
             <div className="container">
                 <h3>{ park ? <Link to={`/parks/${park.id}`} dangerouslySetInnerHTML={{__html: park.name}}></Link> : "Destination" }</h3>
                 { visit ? this.renderVisit() : null }
-                {/* { review ? this.renderReview() : this.renderNoReview() } */}
                 {this.renderReview()}
             </div>
         )
