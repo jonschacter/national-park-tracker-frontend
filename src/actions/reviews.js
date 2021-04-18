@@ -1,3 +1,4 @@
+// root string for API URL
 import API_ROOT from '../apiRoot.js'
 
 // for array of reviews in Park show page
@@ -48,6 +49,7 @@ export const getReview = (visitId) => {
                 if (data.errors) {
                     alert(data.errors)
                 } else if (data.notice) {
+                    // if no review clear store
                     dispatch(resetReview())
                 } else {
                     dispatch(setReview(data))
@@ -69,10 +71,10 @@ export const createReview = (reviewData) => {
         })
             .then(resp => resp.json())
             .then(data => {
-                if (!data.errors){
+                if (!data.error){
                     dispatch(setReview(data))
                 } else {
-                    alert(data.errors)
+                    alert(data.error)
                 }
             })
             .catch(error => alert(error))
@@ -91,10 +93,10 @@ export const updateReview = (reviewData, id, history) => {
         })
             .then(resp => resp.json())
             .then(data => {
-                if (!data.errors){
+                if (!data.error){
                     dispatch(setReview(data))
                 } else {
-                    alert(data.errors)
+                    alert(data.error)
                 }
             })
     }
