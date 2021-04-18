@@ -11,10 +11,9 @@ const Welcome = ({ loggedIn, history }) => {
     const redirectToParks = () => {
         history.push('/parks')
     }
-    
+    // logged in => redirect to /parks
+    // logged out => display Login and Sign Up buttons
     return (
-        // logged in => redirect to /parks
-        // logged out => display Login and Sign Up buttons
         <div className="welcome">
             { loggedIn ? redirectToParks() : <p><LoginButton/> or <SignupButton/></p> }
         </div>

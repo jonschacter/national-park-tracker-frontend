@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 import Parks from './Parks.js'
 
 const ParksContainer = ({ parks }) => {
+    // once parks load from API display Parks index component
     return(
-        // once parks load from API display Parks index component
         <div>
             { parks.length > 0 ? <Parks parks={parks} /> : <h3>LOADING...</h3> }
         </div>
