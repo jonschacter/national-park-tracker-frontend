@@ -1,54 +1,52 @@
+// react-redux
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+// actions
 import { deleteVisit } from '../../actions/visits.js'
 import { getReview } from '../../actions/reviews.js'
+
+// components
 import ReviewCard from '../review/ReviewCard.js'
 import ReviewForm from '../review/ReviewForm.js'
 
 class VisitShow extends Component {
     state = {
-        formToggle: false,
-        editToggle: false
+        reviewFormDisplay: false,
     }
 
     componentDidMount(){
+        // on mount check for existing review
         const { getReview, match } = this.props
         getReview(parseInt(match.params.id))
     }
 
-    showForm = () => {
-        this.setState({
-            formToggle: true
-        })
-    }
-
-    hideForm = () => {
-        this.setState({
-            formToggle: false
-        })
-    }
-
-    toggleEdit = () => {
+    toggleReviewForm = () => {
         this.setState(prevState => ({
-            editToggle: !prevState.editToggle
+            reviewFormDisplay: !prevState.reviewFormDisplay
         }))
-    }
-    
-    renderReviewForm = () => {
-        if (this.state.formToggle) {
-            return <ReviewForm type="New" content="" id="" visitId={this.props.visit.id} />
-        } else {
-            return <button className="button" onClick={this.showForm}>Write a Review</button>
-        }
     }
 
     renderReview = () => {
         const { review, visit } = this.props
-        if (this.state.editToggle) {
-            return <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleEdit={this.toggleEdit} />
+
+        if (review) {
+            // with existing review: 
+            // Edit Review Form or Review Card
+            return (
+                <>
+                    { this.state.reviewFormDisplay ? <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <ReviewCard source="fromVisit" review={review} toggleForm={this.toggleReviewForm} /> }
+                </>
+            )
         } else {
-            return <ReviewCard source="fromVisit" review={review} toggleEdit={this.toggleEdit} hideForm={this.hideForm} />
+            // without existing review:
+            // New Review Form or Create Review Button
+            return (
+                <>
+                    { this.state.reviewFormDisplay ? <ReviewForm type="New" id="" content="" visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <button className="button" onClick={this.toggleReviewForm}>Write a Review</button> }
+                </>
+            )
         }
     }
     
@@ -73,7 +71,8 @@ class VisitShow extends Component {
             <div className="container">
                 <h3>{ park ? <Link to={`/parks/${park.id}`} dangerouslySetInnerHTML={{__html: park.name}}></Link> : "Destination" }</h3>
                 { visit ? this.renderVisit() : null }
-                { review ? this.renderReview() : this.renderReviewForm() }
+                {/* { review ? this.renderReview() : this.renderNoReview() } */}
+                {this.renderReview()}
             </div>
         )
     }

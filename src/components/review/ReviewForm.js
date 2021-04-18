@@ -1,5 +1,8 @@
+// react-redux
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
+// actions
 import { createReview } from '../../actions/reviews.js'
 import { updateReview } from '../../actions/reviews.js'
 
@@ -26,19 +29,21 @@ class ReviewForm extends Component {
             visit_id: this.state.visitId,
             content: this.state.content,
         }
-        const { type, createReview, updateReview, toggleEdit } = this.props
+        const { type, createReview, updateReview, toggleForm } = this.props
         if (type === "New") {
             createReview(reviewData)
+            toggleForm()
         } else {
             updateReview(reviewData, this.state.id)
-            toggleEdit()
+            toggleForm()
         }
     }
 
     render(){
+        const type = this.props.type
         return(
             <div>
-                <h4>{this.props.type === "New" ? "Add a Review" : "Edit your Review" }</h4>
+                <h4>{type === "New" ? "Add a Review" : "Edit your Review" }</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 
@@ -49,7 +54,7 @@ class ReviewForm extends Component {
                         value={this.state.content}
                     />
                     <br/>
-                    <input className="button" type="submit" value="Submit Review" />
+                    <input className="button" type="submit" value={type === "New" ? "Submit Review" : "Update Review"} />
                 </form>
             </div>
         )
