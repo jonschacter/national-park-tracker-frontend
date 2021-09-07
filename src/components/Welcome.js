@@ -14,8 +14,16 @@ const Welcome = ({ loggedIn, history }) => {
     // logged in => redirect to /parks
     // logged out => display Login and Sign Up buttons
     return (
-        <div className="welcome">
-            { loggedIn ? redirectToParks() : <p><LoginButton/> or <SignupButton/></p> }
+        <div className="home-bg">
+            <div className="content">
+                <div className="welcome-container">
+                    <div className="welcome-text">
+                        A tool to learn about our countries parks, log visits and leave reviews!
+                    </div>
+                </div>
+
+                { loggedIn ? redirectToParks() : <div className="user-btns__container"><SignupButton/><LoginButton/></div> }
+            </div>
         </div>
     )
 }

@@ -1,30 +1,226 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .App {
     background-color: #0B0C10;
     color: white;
     text-align: center;
 }
 
+::selection {
+    background-color: #66FCF1;
+    color: #1F2833;
+}
+
+/* -------------------- */
+/* --- BANNER --- */
+/* -------------------- */
+
+.banner {
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.9), rgba(69, 162, 158, 0.9));
+    width: 100%;
+    height: 200px;
+    padding: 35px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .welcome-title {
-    color: #66FCF1;
+    color: #FFF;
     font-family: "Bookman Old Style";
     font-size: 48px;
 }
 
+/* -------------------- */
+/* --- NAVBAR --- */
+/* -------------------- */
+
 .navbar {
-    color: #66FCF1;
-    text-align: center;
+    list-style: none;
     font-size: 24px;
+    display: flex;
+    justify-content: center;
 }
 
-a:link, a:visited {
-    color: #45A29E;
-}
-
-a:hover, a:active {
+.navlink:link, .navlink:visited {
     color: #66FCF1;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.navlink::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: rgba(102,242,241,1);
+    transition: background-color 0.5s, width 0.2s;
+}
+
+.navlink:hover, .navlink:active {
+    color: #FFF;
+}
+
+.navlink:hover::after, .navlink:active::after {
+    width: 100%;
+    background-color: rgba(255,255,255, 1);
+}
+
+.navbar li:not(:first-child) {
+    margin-left: 20px;
+}
+
+/* -------------------- */
+/* --- HOMEPAGE --- */
+/* -------------------- */
+
+.home-bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -20;
+    padding-top: 200px;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(assets/tahoe.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-text {
+    padding: 60px 80px;
+    background-color: #1F2833;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #FFFFFF;
+    opacity: .8;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
+}
+
+.user-btns__container {
+    margin-top: 120px;
 }
 
 .button {
+    display: inline-block;
+    font-size: 24px;
+    padding: 20px;
+    min-width: 200px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.signup__btn {
+    background-color: #66FCF1;
+    color: #1F2833;
+    transition: all .3s;
+}
+
+.signup__btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,1);
+    background-color: #45A295;
+    color: #FFFFFF;
+}
+
+.signup__btn:active, .signup__btn:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,1);
+}
+
+.login__btn {
+    margin-left: 20px;
+    background-color: #C5C6C7;
+    color: #1F2833;
+    transition: all .3s;
+}
+
+.login__btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,1);
+    background-color: #45A295;
+    color: #FFFFFF;
+}
+
+.login__btn:active, .login__btn:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,1);
+}
+
+/* -------------------- */
+/* --- USER FORM --- */
+/* -------------------- */
+
+.form {
+    background-color: #1F2833;
+    width: 30%;
+    opacity: .9;
+    padding: 30px;
+    border: 2px solid #45A29E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row {
+    margin-bottom: 15px;
+    display: flex;
+    width: 100%;
+}
+
+.form-row label {
+    width: 30%;
+    transform: translateY(5px);
+}
+.form-row input {
+    width: 70%;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.form-button {
+    padding: 10px;
+    font-size: 20px;
+    display: inline-block; 
+    background-color: #C5C6C7;
+    color: #1F2833;
+    border-radius: 4px;
+    border: 2px solid #1F2833;
+    transition: all 0.3s;
+}
+
+.form-button:hover {
+    background-color: #45A29E;
+}
+
+/* .button {
     background-color: #C5C6C7;
     font-size: 14px;
     color: #1F2833;
@@ -108,4 +304,4 @@ a:hover, a:active {
 
 .review-card > a:hover, a:active {
     color: #66FCF1;
-}
+} */

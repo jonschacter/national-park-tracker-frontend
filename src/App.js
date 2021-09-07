@@ -33,8 +33,10 @@ class App extends Component {
         return(
             <div className="App">
                 <Router>
-                    <Navbar />
-                    <h1 className="welcome-title">U.S. NATIONAL PARK TRACKER</h1>
+                    <div className="banner">
+                        <h1 className="welcome-title">U.S. NATIONAL PARK TRACKER</h1>
+                        <Navbar />
+                    </div>
                     <Switch>
                         <Route exact path="/" component={Welcome} />
                         <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />

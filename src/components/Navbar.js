@@ -10,11 +10,14 @@ const Navbar = ({ loggedIn, logout, history }) => {
     // if logged in : Parks | My Visits | Log Out
     // if logged out : Home | Parks
     return(
-        <div className="navbar">
-            { loggedIn ? null : <><Link to="/">Home</Link> | </> }
-            <Link to="/parks">Parks</Link>
-            { loggedIn ? <> | <Link to="/visits">My Visits</Link> | <Link onClick={ () => logout(history) }>Log Out</Link></> : null }
-        </div>
+        <ul className="navbar">
+            { loggedIn ? null : <Link className="navlink" to="/">Home</Link> }
+            <li><Link className="navlink" to="/parks">Parks</Link></li>
+            { loggedIn ? <>
+                            <li><Link className="navlink" to="/visits">My Visits</Link></li>
+                            <li><Link className="navlink" onClick={ () => logout(history) }>Log Out</Link></li>
+                        </> : null }
+        </ul>
     )
 }
 

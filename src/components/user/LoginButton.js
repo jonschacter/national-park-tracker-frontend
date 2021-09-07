@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const LoginButton = () => {
     return(
-        <Link to="/login"><button className="button">Log In</button></Link>
+        <Link to="/login"><button className="login__btn button">Log In</button></Link>
     )
 }
 
