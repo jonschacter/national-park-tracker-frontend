@@ -24,8 +24,8 @@
 .banner {
     background: linear-gradient(to bottom right, rgba(0,0,0,0.9), rgba(69, 162, 158, 0.9));
     width: 100%;
-    height: 200px;
-    padding: 35px 0;
+    height: 150px;
+    padding: 25px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -80,30 +80,47 @@
 }
 
 /* -------------------- */
-/* --- HOMEPAGE --- */
+/* --- COMMON COMPONENTS --- */
 /* -------------------- */
 
 .home-bg {
     width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
     z-index: -20;
-    padding-top: 200px;
+    padding-top: 100px;
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(assets/tahoe.jpeg);
     background-size: cover;
     background-position: center;
 }
 
 .content {
-    padding-top: 150px;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.content-box {
+    background-color: #1F2833;
+    border: 5px solid #45A29E;
+}
+
+.button {
+    display: inline-block;
+    font-size: 24px;
+    padding: 20px;
+    min-width: 200px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* -------------------- */
+/* --- HOMEPAGE --- */
+/* -------------------- */
+
 .welcome-container {
+    margin-top: 100px;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -125,16 +142,6 @@
 
 .user-btns__container {
     margin-top: 120px;
-}
-
-.button {
-    display: inline-block;
-    font-size: 24px;
-    padding: 20px;
-    min-width: 200px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
 }
 
 .signup__btn {
@@ -179,11 +186,9 @@
 /* -------------------- */
 
 .form {
-    background-color: #1F2833;
     width: 30%;
     opacity: .9;
     padding: 30px;
-    border: 2px solid #45A29E;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -220,6 +225,122 @@
     background-color: #45A29E;
 }
 
+/* -------------------- */
+/* --- PARKS INDEX --- */
+/* -------------------- */
+
+.parks-box {
+    width: 50%;
+    padding: 20px;
+}
+
+.heading-h2 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.park-search {
+    width: 40%;
+    margin-right: 10px;
+    height: 30px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.filter-button {
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.park-list {
+    list-style: none;
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 50px;
+    max-height: 100vh;
+    overflow-y:auto;
+}
+
+.park-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.park-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+.park-list::-webkit-scrollbar-thumb {
+    background-color: #45A29E;
+    border-radius: 5px;
+}
+
+.park {
+    font-size: 20px;
+}
+
+.park:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.park a:link, .park a:visited {
+    text-decoration: none;
+    color: #45A29E;
+    transition: all 0.3s;
+}
+
+.park a:hover, .parka:active {
+    color: #66FCF1;
+    text-decoration: underline;
+}
+
+/* -------------------- */
+/* --- PARK SHOW --- */
+/* -------------------- */
+
+.park-show-box {
+    width: 80%;
+    padding: 30px 30px;
+}
+
+.park-address {
+    list-style: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.park-description {
+    width: 75%;
+    margin: 20px auto;
+}
+
+.park-image {
+    max-width: 50%;
+    margin: 40px auto 0;
+    font-size: 14px;
+}
+
+.park-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 3px solid #66FCF1;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+/* .subheader {
+    color: #C5C6C7;
+} */
+
+/* .container {
+    background-color: #1F2833;
+    margin: auto;
+    width: 75%;
+    border: 10px solid #45A29E;
+    padding: 20px;
+} */
+
 /* .button {
     background-color: #C5C6C7;
     font-size: 14px;
@@ -231,18 +352,6 @@
 
 .button:hover {
     background-color: #45A29E;
-}
-
-.subheader {
-    color: #C5C6C7;
-}
-
-.container {
-    background-color: #1F2833;
-    margin: auto;
-    width: 85%;
-    border: 10px solid #45A29E;
-    padding-bottom: 20px;
 }
 
 .list {
@@ -266,36 +375,34 @@
 .park-image img {
     max-width: 400px;
     max-height: 350px;
+} */
+
+/* -------------------- */
+/* --- REVIEWS --- */
+/* -------------------- */
+
+.park-reviews {
+    margin-top: 60px;
 }
 
 .review-card {
     background-color: #45A29E;
-    width: 70%;
-    margin: auto;
-    padding: 1px;
+    width: 66%;
+    margin: 20px auto 0;
+    padding: 20px 50px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+    border: 1px solid white;
 }
 
 .review-content {
     text-align: left;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 15px 0;
+    font-size: 18px;
 }
 
 .review-date {
     font-size: 12px;
-}
-
-.form {
-    background-color: #1F2833;
-    display: inline-block;
-    padding: 20px;
-    border: 2px solid #45A29E;
-    text-align: left;
-}
-
-.form-button {
-    text-align: center;
-    margin: 5px;
 }
 
 .review-card > a {
@@ -304,4 +411,4 @@
 
 .review-card > a:hover, a:active {
     color: #66FCF1;
-} */
+}

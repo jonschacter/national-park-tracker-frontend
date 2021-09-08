@@ -8,7 +8,7 @@ import Parks from './Parks.js'
 const ParksContainer = ({ parks }) => {
     // once parks load from API display Parks index component
     return(
-        <div>
+        <div className="content">
             { parks.length > 0 ? <Parks parks={parks} /> : <h3>LOADING...</h3> }
         </div>
     )

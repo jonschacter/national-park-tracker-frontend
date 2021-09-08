@@ -3,12 +3,12 @@ import React from 'react'
 
 const ParkAddress = ({ address }) => {
     return(
-        <div className="park-address">
-            <p>{address.line1}</p>
-            { address.line2 === "" ? null : <p>{address.line2}</p>}
-            { address.line3 === "" ? null : <p>{address.line2}</p>}
-            <p>{address.city}, {address.state} {address.postal}</p>
-        </div>
+        <ul className="park-address">
+            <li>{address.line1}</li>
+            { address.line2 === "" ? null : <li>{address.line2}</li>}
+            { address.line3 === "" ? null : <li>{address.line2}</li>}
+            <li>{address.city}, {address.state} {address.postal}</li>
+        </ul>
     )
 }
 

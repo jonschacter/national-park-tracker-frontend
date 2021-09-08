@@ -42,7 +42,7 @@ class UserForm extends Component {
         return(
             <div className="home-bg">
                 <div className="content">
-                    <form className="form" onSubmit={this.handleSubmit}>
+                    <form className="content-box form" onSubmit={this.handleSubmit}>
                         <div className="form-row">
                             <label>Username:</label>
                             <input type="text" name="username" onChange={this.handleChange} value={this.state.username} />
