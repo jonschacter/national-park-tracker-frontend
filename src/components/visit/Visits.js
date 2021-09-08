@@ -17,8 +17,8 @@ const Visits = ({ visits, parks }) => {
     }
     
     return(
-        <div className="container">
-            <h2>MY VISITS</h2>
+        <div className="content-box visits-box">
+            <h2 className="heading-h2">MY VISITS</h2>
             <Link to="/visits/new">Add a New Visit</Link>
             <br /><br />
             { visits.length > 0 ? renderVisits() : null }

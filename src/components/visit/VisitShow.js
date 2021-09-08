@@ -45,7 +45,7 @@ class VisitShow extends Component {
             // New Review Form or Create Review Button
             return (
                 <>
-                    { this.state.reviewFormDisplay ? <ReviewForm type="New" id="" content="" visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <button className="button" onClick={this.toggleReviewForm}>Write a Review</button> }
+                    { this.state.reviewFormDisplay ? <ReviewForm type="New" id="" content="" visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <button className="form-button" onClick={this.toggleReviewForm}>Write a Review</button> }
                 </>
             )
         }
@@ -54,22 +54,20 @@ class VisitShow extends Component {
     renderVisit = () => {
         const { visit, history, deleteVisit } = this.props
         return(
-            <>
-                <p>Start Date: { visit ? visit.start_date : null }</p>
-                <p>End Date: { visit ? visit.end_date : null }</p>
+            <div>
+                <p className="visit-date">Start Date: { visit ? visit.start_date : null }</p>
+                <p className="visit-date">End Date: { visit ? visit.end_date : null }</p>
                 <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link>
                 <br/>
                 <Link onClick={() => deleteVisit(visit.id, history)}>Delete This Visit</Link>
-                <br/>
-                <br/>
-            </>
+            </div>
         )
     }
 
     render(){
         const { visit, park } = this.props
         return(
-            <div className="container">
+            <div className="content-box visit-box">
                 <h3>{ park ? <Link to={`/parks/${park.id}`} dangerouslySetInnerHTML={{__html: park.name}}></Link> : "Destination" }</h3>
                 { visit ? this.renderVisit() : null }
                 {this.renderReview()}

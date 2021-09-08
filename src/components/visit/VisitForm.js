@@ -52,8 +52,8 @@ class VisitForm extends Component {
     render(){
         const { parks, type } = this.props
         return(
-            <div className="form">
-                <form onSubmit={this.handleSubmit}>
+            <form className="visit-form form" onSubmit={this.handleSubmit}>
+                <div className="form-row">
                     <label>Park:</label>
                     <select name="parkId" onChange={this.handleChange} value={this.state.parkId}>
                         { type === "Create Visit" ? <option disabled value=""> -- select a park -- </option> : null }
@@ -61,18 +61,17 @@ class VisitForm extends Component {
                             return (a.name < b.name) ? -1 : 1
                         }).map(park => <option value={park.id} dangerouslySetInnerHTML={{__html: park.name}}></option>) }
                     </select>
-                    <br/>
+                </div>
+                <div className="form-row">        
                     <label>Start Date:</label>
                     <input type="text" placeholder="YYYY-MM-DD" name="startDate" onChange={this.handleChange} value={this.state.startDate} />
-                    <br/>
+                </div>
+                <div className="form-row">
                     <label>End Date:</label>
                     <input type="text" placeholder="YYYY-MM-DD" name="endDate" onChange={this.handleChange} value={this.state.endDate} />
-                    <br/>
-                    <div className="form-button">
-                        <input type="submit" value={type} />
-                    </div>
-                </form>
-            </div>
+                </div>
+                <input className="form-button" type="submit" value={type} />
+            </form>
         )
     }
 }

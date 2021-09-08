@@ -50,7 +50,7 @@ class Parks extends Component {
 
     render(){
         return(
-            <div className="content-box parks-box">
+            <>
                 <h2 className="heading heading-h2">PARKS</h2>
                 <form>
                     <input className="park-search" type="text" onChange={this.handleQueryChange} placeholder="search by name or state"/>
@@ -62,7 +62,7 @@ class Parks extends Component {
                 <ul className="park-list">
                     {this.renderParks()}
                 </ul>
-            </div>
+            </>
         )
     }
 }

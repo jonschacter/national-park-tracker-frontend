@@ -40,20 +40,19 @@ class UserForm extends Component {
     
     render(){
         return(
-            <div className="home-bg">
-                <div className="content">
-                    <form className="content-box form" onSubmit={this.handleSubmit}>
-                        <div className="form-row">
-                            <label>Username:</label>
-                            <input type="text" name="username" onChange={this.handleChange} value={this.state.username} />
-                        </div>
-                        <div className="form-row">
-                            <label>Password:</label>
-                            <input type="password" name="password" onChange={this.handleChange} value={this.state.password} />
-                        </div>
-                        <input className="form-button" type="submit" value={this.state.type} />
-                    </form>
-                </div>
+            <div className="content-box user-form-box">
+                { this.state.type === "Log In" ? <h2 className="heading-h2">Log In</h2> : <h2 className="heading-h2">Sign Up</h2> }
+                <form className="form" onSubmit={this.handleSubmit}>
+                    <div className="form-row">
+                        <label>Username:</label>
+                        <input type="text" name="username" onChange={this.handleChange} value={this.state.username} />
+                    </div>
+                    <div className="form-row">
+                        <label>Password:</label>
+                        <input type="password" name="password" onChange={this.handleChange} value={this.state.password} />
+                    </div>
+                    <input className="form-button" type="submit" value={this.state.type} />
+                </form>
             </div>
         )
     }

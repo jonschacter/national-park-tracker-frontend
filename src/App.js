@@ -38,17 +38,19 @@ class App extends Component {
                         <Navbar />
                     </div>
                     <div className="home-bg">
-                        <Switch>
-                            <Route exact path="/" component={Welcome} />
-                            <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />
-                            <Route exact path="/signup" render={(routerProps) => <UserForm {...routerProps} type="Sign Up" />} />
-                            <Route exact path="/parks" component={ParksContainer} />
-                            <Route exact path={`/parks/:id`} component={ParkShow} />
-                            <Route exact path="/visits" component={Visits} />
-                            <Route exact path="/visits/new" component={NewVisitFormContainer} />
-                            <Route exact path={`/visits/:id/edit`} component={EditVisitFormContainer} />
-                            <Route exact path={`/visits/:id`} component={VisitShow} />
-                        </Switch>
+                        <div className="content">
+                            <Switch>
+                                <Route exact path="/" component={Welcome} />
+                                <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />
+                                <Route exact path="/signup" render={(routerProps) => <UserForm {...routerProps} type="Sign Up" />} />
+                                <Route exact path="/parks" component={ParksContainer} />
+                                <Route exact path={`/parks/:id`} component={ParkShow} />
+                                <Route exact path="/visits" component={Visits} />
+                                <Route exact path="/visits/new" component={NewVisitFormContainer} />
+                                <Route exact path={`/visits/:id/edit`} component={EditVisitFormContainer} />
+                                <Route exact path={`/visits/:id`} component={VisitShow} />
+                            </Switch>
+                        </div>
                     </div>
                 </Router>
             </div>

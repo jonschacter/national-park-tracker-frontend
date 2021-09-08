@@ -16,11 +16,9 @@ class ParkShow extends Component {
     componentDidMount(){
         const { getReviews, match } = this.props
         getReviews(match.params.id)
-        document.getElementsByClassName("home-bg")[0].style.background = "black";
     }
 
     componentWillUnmount(){
-        document.getElementsByClassName("home-bg")[0].style.removeProperty('background');
     }
 
     renderReviews = () => {
@@ -47,10 +45,8 @@ class ParkShow extends Component {
 
     render(){
         return(
-            <div className="content">
-                <div className="content-box park-show-box">
-                    { this.props.park ? this.renderPark() : <h3>LOADING...</h3> }
-                </div>
+            <div className="content-box park-show-box">
+                { this.props.park ? this.renderPark() : <h3>LOADING...</h3> }
             </div>
         )
     }

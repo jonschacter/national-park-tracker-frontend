@@ -42,19 +42,18 @@ class ReviewForm extends Component {
     render(){
         const type = this.props.type
         return(
-            <div>
+            <div className="review-form-container">
                 <h4>{type === "New" ? "Add a Review" : "Edit your Review" }</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 
                         form="review-form" 
-                        cols="50" rows="4" 
+                        cols="50" rows="8" 
                         placeholder="Leave your thoughts here..."
                         onChange={this.handleChange}
                         value={this.state.content}
                     />
-                    <br/>
-                    <input className="button" type="submit" value={type === "New" ? "Submit Review" : "Update Review"} />
+                    <input className="form-button" type="submit" value={type === "New" ? "Submit Review" : "Update Review"} />
                 </form>
             </div>
         )
