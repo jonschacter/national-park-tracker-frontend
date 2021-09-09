@@ -41,7 +41,7 @@ class UserForm extends Component {
     render(){
         return(
             <div className="content-box user-form-box">
-                { this.state.type === "Log In" ? <h2 className="heading-h2">Log In</h2> : <h2 className="heading-h2">Sign Up</h2> }
+                <h2 className="heading-h2">{ this.state.type }</h2>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <label>Username:</label>

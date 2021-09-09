@@ -18,9 +18,6 @@ class ParkShow extends Component {
         getReviews(match.params.id)
     }
 
-    componentWillUnmount(){
-    }
-
     renderReviews = () => {
         return(
             <div className="park-reviews">

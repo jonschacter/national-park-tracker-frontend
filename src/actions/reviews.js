@@ -81,7 +81,7 @@ export const createReview = (reviewData) => {
     }
 }
 
-export const updateReview = (reviewData, id, history) => {
+export const updateReview = (reviewData, id) => {
     return dispatch => {
         return fetch(`${API_ROOT}/reviews/${id}`, {
             credentials: "include",

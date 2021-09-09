@@ -63,7 +63,7 @@ export const signup = (userInfo, history) => {
             },
             body: JSON.stringify({
                 user: userInfo
-                })
+            })
         })
             .then(resp => resp.json())
             .then(data => {

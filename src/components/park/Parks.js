@@ -31,21 +31,26 @@ class Parks extends Component {
     handleSelectChange = (event) => {
         // filter parks on select change
         const query = this.state.query.toLowerCase()
-        const result = this.state.queryType === "State" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
+        const queryType = event.target.value;
+        const filteredParks = this.filterParks(query, queryType)
         this.setState({
-            queryType: event.target.value,
-            filteredParks: result
+            queryType,
+            filteredParks
         })
     }
 
     handleQueryChange = (event) => {
         // filter parks on query change
         const query = event.target.value.toLowerCase()
-        const result = this.state.queryType === "Name" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
+        const filteredParks = this.filterParks(query, this.state.queryType)
         this.setState({
             query,
-            filteredParks: result
+            filteredParks
         })
+    }
+
+    filterParks = (query, field) => {
+        return field === "Name" ? this.props.parks.filter(park => park.name.toLowerCase().includes(query)) : this.props.parks.filter(park => park.states.toLowerCase().includes(query))
     }
 
     render(){
