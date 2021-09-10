@@ -43,7 +43,7 @@ class ReviewForm extends Component {
         const type = this.props.type
         return(
             <div className="review-form-container">
-                <h4>{type === "New" ? "Add a Review" : "Edit your Review" }</h4>
+                <h4>{type === "New" ? "Add a " : "Edit your " }Review</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 

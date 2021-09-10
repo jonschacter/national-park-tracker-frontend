@@ -8,12 +8,13 @@ import Visit from './Visit.js'
 
 const Visits = ({ visits, parks }) => {
     const renderVisits = () => {
-        return <div className="list">
-            {visits.map(visit => {
-                return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
-            })}
-        </div>
-
+        return(
+            <div className="list">
+                {visits.map(visit => {
+                    return <Visit key={visit.id} visit={visit} park={parks.find(park => park.id === visit.park_id)}/>
+                })}
+            </div>
+        )
     }
     
     return(

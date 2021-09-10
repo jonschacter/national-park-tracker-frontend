@@ -76,10 +76,9 @@ class VisitForm extends Component {
     }
 }
 
-const mapStateToProps = ({ parks, currentUser }) => {
+const mapStateToProps = ({ currentUser }) => {
     const userId = currentUser ? currentUser.id : null
     return {
-        parks,
         userId
     }
 }
