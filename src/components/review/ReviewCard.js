@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 // actions
 import { deleteReview } from '../../actions/reviews.js'
 
-// source will be either "fromVisit" or "fromParks"
-const ReviewCard = ({ review, source, toggleForm, deleteReview }) => {
+// fromParks will be true if source is the Park Show page, false if from Visit Show page
+const ReviewCard = ({ review, fromParks, toggleForm, deleteReview }) => {
     const handleDelete = () => {
         deleteReview(review.id)
     }
@@ -15,10 +15,10 @@ const ReviewCard = ({ review, source, toggleForm, deleteReview }) => {
     // only show edit/delete options when source = "fromVisit"
     return(
         <div className="review-card">
-            <h3>{ source === "fromVisit" ? "Your Review" : review.user.username }</h3>
+            <h3>{ fromParks ? review.user.username : "Your Review"}</h3>
             <p className="review-content">{review.content}</p>
             <p className="review-date">{review.updated_at.split("T")[0]}</p>
-            { source === "fromVisit" ? <><Link onClick={toggleForm}>edit</Link> | <Link onClick={handleDelete}>delete</Link></> : null }
+            { fromParks ? null : <><Link onClick={toggleForm}>edit</Link> | <Link onClick={handleDelete}>delete</Link></> }
         </div>
     )
 }

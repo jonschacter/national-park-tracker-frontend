@@ -9,7 +9,7 @@ const NewVisitFormContainer = ({ parks }) => {
     return(
         <div className="content-box visit-form-box">
             <h2 className="heading-h2">Create a Visit</h2>
-            <VisitForm parks={parks} type="Create Visit" />
+            <VisitForm parks={parks} newVisit={true} />
         </div>
     )
 }

@@ -22,7 +22,7 @@ class ParkShow extends Component {
         return(
             <div className="park-reviews">
                 <h2 className="heading-h2">REVIEWS</h2>
-                { this.props.parkReviews.map(review => <><ReviewCard review={review} source="fromParks" /><br/></>) }
+                { this.props.parkReviews.map(review => <><ReviewCard review={review} fromParks={true} /><br/></>) }
             </div>
         )
     }

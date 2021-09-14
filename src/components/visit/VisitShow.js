@@ -37,7 +37,7 @@ class VisitShow extends Component {
             // Edit Review Form or Review Card
             return (
                 <>
-                    { this.state.reviewFormDisplay ? <ReviewForm type="Edit" id={review.id} content={review.content} visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <ReviewCard source="fromVisit" review={review} toggleForm={this.toggleReviewForm} /> }
+                    { this.state.reviewFormDisplay ? <ReviewForm newReview={false} id={review.id} content={review.content} visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <ReviewCard fromParks={false} review={review} toggleForm={this.toggleReviewForm} /> }
                 </>
             )
         } else {
@@ -45,7 +45,7 @@ class VisitShow extends Component {
             // New Review Form or Create Review Button
             return (
                 <>
-                    { this.state.reviewFormDisplay ? <ReviewForm type="New" id="" content="" visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <button className="form-button" onClick={this.toggleReviewForm}>Write a Review</button> }
+                    { this.state.reviewFormDisplay ? <ReviewForm newReview={true} id="" content="" visitId={visit.id} toggleForm={this.toggleReviewForm} /> : <button className="form-button" onClick={this.toggleReviewForm}>Write a Review</button> }
                 </>
             )
         }

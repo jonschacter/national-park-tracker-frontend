@@ -29,8 +29,8 @@ class ReviewForm extends Component {
             visit_id: this.state.visitId,
             content: this.state.content,
         }
-        const { type, createReview, updateReview, toggleForm } = this.props
-        if (type === "New") {
+        const { newReview, createReview, updateReview, toggleForm } = this.props
+        if (newReview) {
             createReview(reviewData)
             toggleForm()
         } else {
@@ -40,10 +40,9 @@ class ReviewForm extends Component {
     }
 
     render(){
-        const type = this.props.type
         return(
             <div className="review-form-container">
-                <h4>{type === "New" ? "Add a " : "Edit your " }Review</h4>
+                <h4>{this.props.newReview ? "Add a " : "Edit your " }Review</h4>
                 <form id="review-form" onSubmit={this.handleSubmit}>
                     <textarea 
                         name="content" 
@@ -53,7 +52,7 @@ class ReviewForm extends Component {
                         onChange={this.handleChange}
                         value={this.state.content}
                     />
-                    <input className="form-button" type="submit" value={type === "New" ? "Submit Review" : "Update Review"} />
+                    <input className="form-button" type="submit" value={this.props.newReview ? "Submit Review" : "Update Review"} />
                 </form>
             </div>
         )

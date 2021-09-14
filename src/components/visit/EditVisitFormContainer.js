@@ -9,7 +9,7 @@ const EditVisitFormContainer = ({ visit, parks }) => {
     return(
         <div className="content-box visit-form-box">
             <h2 className="heading-h2">Edit Visit</h2>
-            { visit && parks.length > 0 ? <VisitForm visit={visit} parks={parks} type="Update Visit" /> : <h3>LOADING...</h3> }
+            { visit && parks.length > 0 ? <VisitForm visit={visit} parks={parks} newVisit={false} /> : <h3>LOADING...</h3> }
         </div>
     )
 }

@@ -41,8 +41,8 @@ class App extends Component {
                         <div className="content">
                             <Switch>
                                 <Route exact path="/" component={Welcome} />
-                                <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} type="Log In" />} />
-                                <Route exact path="/signup" render={(routerProps) => <UserForm {...routerProps} type="Sign Up" />} />
+                                <Route exact path="/login" render={(routerProps) => <UserForm {...routerProps} newUser={false} />} />
+                                <Route exact path="/signup" render={(routerProps) => <UserForm {...routerProps} newUser={true} />} />
                                 <Route exact path="/parks" component={ParksContainer} />
                                 <Route exact path={`/parks/:id`} component={ParkShow} />
                                 <Route exact path="/visits" component={Visits} />

@@ -7,22 +7,22 @@ import { login } from '../../actions/currentUser.js'
 import { signup } from '../../actions/currentUser.js'
 
 class UserForm extends Component {
-    // props.type will be either "Log In" or "Sign Up"
+    // props.newUser will be false for Log In or true for Sign Up
     constructor(props){
         super(props)
         this.state = {
             username: "",
             password: "",
-            type: props.type
         }
     }
 
     handleSubmit = event => {
         event.preventDefault()
-        if (this.state.type === "Log In") {
-            this.props.login(this.state, this.props.history)
+        const { newUser, signup, login, history } = this.props
+        if (newUser) {
+            signup(this.state, history)
         } else {
-            this.props.signup(this.state, this.props.history)
+            login(this.state, history)
         }
         
         this.setState({
@@ -41,7 +41,7 @@ class UserForm extends Component {
     render(){
         return(
             <div className="content-box user-form-box">
-                <h2 className="heading-h2">{ this.state.type }</h2>
+                <h2 className="heading-h2">{ this.props.newUser ? "Sign Up" : "Log In" }</h2>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div className="form-row">
                         <label>Username:</label>
@@ -51,7 +51,7 @@ class UserForm extends Component {
                         <label>Password:</label>
                         <input type="password" name="password" onChange={this.handleChange} value={this.state.password} />
                     </div>
-                    <input className="form-button" type="submit" value={this.state.type} />
+                    <input className="form-button" type="submit" value={ this.props.newUser ? "Sign Up" : "Log In" } />
                 </form>
             </div>
         )

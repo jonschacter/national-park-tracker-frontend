@@ -8,11 +8,12 @@ import { createVisit } from '../../actions/visits.js'
 import { updateVisit } from '../../actions/visits.js'
 
 class VisitForm extends Component {
-    // props.type will be "Create Visit" or "Update Visit"
+    // props.newVisit will be true for Create Visit and false for Update Visit
     constructor(props){
         super(props)
+        const visit = props.visit
 
-        if(props.type === "Create Visit"){
+        if(props.newVisit){
             this.state = {
                 parkId: "",
                 startDate: "",
@@ -20,11 +21,11 @@ class VisitForm extends Component {
             }
         } else {
             this.state = {
-                parkId: props.visit.park_id,
-                startDate: props.visit.start_date,
-                endDate: props.visit.end_date,
-                userId: props.visit.user_id,
-                id: props.visit.id
+                parkId: visit.park_id,
+                startDate: visit.start_date,
+                endDate: visit.end_date,
+                userId: visit.user_id,
+                id: visit.id
             }
         }
     }
@@ -38,8 +39,8 @@ class VisitForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const { type, userId, createVisit, updateVisit, history } = this.props
-        if(type === "Create Visit"){
+        const { newVisit, userId, createVisit, updateVisit, history } = this.props
+        if(newVisit){
             createVisit({
                 ...this.state,
                 userId
@@ -50,16 +51,16 @@ class VisitForm extends Component {
     }
 
     render(){
-        const { parks, type } = this.props
+        const { parks, newVisit } = this.props
         return(
             <form className="visit-form form" onSubmit={this.handleSubmit}>
                 <div className="form-row">
                     <label>Park:</label>
                     <select name="parkId" onChange={this.handleChange} value={this.state.parkId}>
-                        { type === "Create Visit" ? <option disabled value=""> -- select a park -- </option> : null }
+                        { newVisit ? <option disabled value=""> -- select a park -- </option> : null }
                         { parks.sort((a,b) => {
                             return (a.name < b.name) ? -1 : 1
-                        }).map(park => <option value={park.id} dangerouslySetInnerHTML={{__html: park.name}}></option>) }
+                        }).map(park => <option key={park.id} value={park.id} dangerouslySetInnerHTML={{__html: park.name}}></option>) }
                     </select>
                 </div>
                 <div className="form-row">        
@@ -70,7 +71,7 @@ class VisitForm extends Component {
                     <label>End Date:</label>
                     <input type="text" placeholder="YYYY-MM-DD" name="endDate" onChange={this.handleChange} value={this.state.endDate} />
                 </div>
-                <input className="form-button" type="submit" value={type} />
+                <input className="form-button" type="submit" value={ newVisit ? "Create Visit" : "Update Visit" } />
             </form>
         )
     }
