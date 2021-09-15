@@ -2,10 +2,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Park = ({ park }) => {
+const Park = ({ park: {id, name, states} }) => {
     return(
         <li className="park">
-            <Link to={`/parks/${park.id}`} dangerouslySetInnerHTML={{__html: park.name}}></Link> - {park.states}
+            <Link to={`/parks/${id}`} dangerouslySetInnerHTML={{__html: name}}></Link> - {states}
         </li>
     )
 }

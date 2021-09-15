@@ -55,8 +55,8 @@ class VisitShow extends Component {
         const { visit, history, deleteVisit } = this.props
         return(
             <div>
-                <p className="visit-date">Start Date: { visit ? visit.start_date : null }</p>
-                <p className="visit-date">End Date: { visit ? visit.end_date : null }</p>
+                <p className="visit-date">Start Date: { visit.start_date }</p>
+                <p className="visit-date">End Date: { visit.end_date }</p>
                 <Link to={`/visits/${visit.id}/edit`}>Edit This Visit</Link>
                 <br/>
                 <Link onClick={() => deleteVisit(visit.id, history)}>Delete This Visit</Link>

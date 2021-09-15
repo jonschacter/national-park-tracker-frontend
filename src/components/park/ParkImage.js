@@ -1,11 +1,11 @@
 // react-redux
 import React from 'react'
 
-const ParkImage = ({ image }) => {
+const ParkImage = ({ image: {url, alt, caption} }) => {
     return(
         <div className="park-image">
-            <img src={image.url} alt={image.alt}/>
-            <p>{image.caption}</p>
+            <img src={url} alt={alt}/>
+            <p>{caption}</p>
         </div>
     )
 }
