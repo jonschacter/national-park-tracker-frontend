@@ -304,6 +304,10 @@ a:hover, a:active {
     padding-left: 5px;
 }
 
+textarea {
+    padding: 5px;
+}
+
 .form-row select {
     width: 75%;
     height: 30px;
